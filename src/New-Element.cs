@@ -14,50 +14,61 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable? Attributes { get; set; }
 
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Class { get; set; } = "";
 
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[Parameter(Position = 0)]
+	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
 	public object? Content { get; set; }
 
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Id { get; set; } = "";
 
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Style { get; set; } = "";
 
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() {
-		var builder = new StringBuilder($"<{tag}");
-		if (!string.IsNullOrWhiteSpace(Id)) builder.Append($" id=\"{Id}\"");
-		if (!string.IsNullOrWhiteSpace(Class)) builder.Append($" class=\"{Class}\"");
-		if (!string.IsNullOrWhiteSpace(Style)) builder.Append($" style=\"{Style.Replace("\"", "&quot;")}\"");
+		Attributes ??= [];
+		if (!string.IsNullOrWhiteSpace(Id)) Attributes["id"] = Id;
+		if (!string.IsNullOrWhiteSpace(Class)) Attributes["class"] = Class;
+		if (!string.IsNullOrWhiteSpace(Style)) Attributes["style"] = Style;
 
-		if (Attributes is not null) foreach (DictionaryEntry attribute in Attributes)
-			builder.Append($" {attribute.Key}=\"{Convert.ToString(attribute.Value)?.Replace("\"", "&quot;")}\"");
+		var builder = new StringBuilder($"<{tag}");
+		foreach (DictionaryEntry attribute in Attributes) {
+			if (attribute.Value is bool booleanValue)
+				if (booleanValue) builder.Append($" {attribute.Key}");
+			else {
+				var value = Convert.ToString(attribute.Value)?.Replace("\"", "&quot;");
+				if (!string.IsNullOrWhiteSpace(value)) builder.Append($" {attribute.Key}=\"{value}\"");
+			}
+		}
 
 		if (isVoid) builder.Append(" />");
 		else {
+			var value = Content is ScriptBlock scriptBlock
+				? scriptBlock.Invoke().Select(psObject => psObject.BaseObject)
+				: (Content is string content ? WebUtility.HtmlEncode(content) : Content);
+
 			builder.Append('>');
-			builder.Append(Content is ScriptBlock scriptBlock ? scriptBlock.Invoke() : (Content is string content ? WebUtility.HtmlEncode(content) : Content));
-			builder.Append($"</{tag}");
+			builder.Append(value);
+			builder.Append($"</{tag}>");
 		}
 
 		WriteObject(builder.ToString());
