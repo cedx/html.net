@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Company>Cedric-Belin.fr</Company>
+		<Copyright>© Cédric Belin</Copyright>
+		<Description>TODO</Description>
+		<Product>HTML Template Engine for PowerShell</Product>
+		<Version>3.2.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+		<PackageTags>TODO</PackageTags>
+		<RepositoryUrl>https://github.com/cedx/html.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>Belin.Html.Cmdlets</AssemblyName>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<HotReloadAutoRestart>true</HotReloadAutoRestart>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>../bin</OutDir>
+		<RootNamespace>Belin.Html.Cmdlets</RootNamespace>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
+		<PackageReference Include="System.Management.Automation" Version="7.5.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="System.Management.Automation" />
+	</ItemGroup>
+</Project>
