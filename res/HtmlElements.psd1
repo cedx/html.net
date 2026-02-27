@@ -1,116 +1,116 @@
 @{
 	HtmlElements = @(
-		@{ Tag = "a"; IsVoid = $false }
-		@{ Tag = "abbr"; IsVoid = $false }
-		@{ Tag = "address"; IsVoid = $false }
-		@{ Tag = "area"; IsVoid = $true }
-		@{ Tag = "article"; IsVoid = $false }
-		@{ Tag = "aside"; IsVoid = $false }
-		@{ Tag = "audio"; IsVoid = $false }
-		@{ Tag = "b"; IsVoid = $false }
-		@{ Tag = "base"; IsVoid = $true }
-		@{ Tag = "bdi"; IsVoid = $false }
-		@{ Tag = "bdo"; IsVoid = $false }
-		@{ Tag = "blockquote"; IsVoid = $false }
-		@{ Tag = "body"; IsVoid = $false }
-		@{ Tag = "br"; IsVoid = $true }
-		@{ Tag = "button"; IsVoid = $false }
-		@{ Tag = "canvas"; IsVoid = $false }
-		@{ Tag = "caption"; IsVoid = $false }
-		@{ Tag = "cite"; IsVoid = $false }
-		@{ Tag = "code"; IsVoid = $false }
-		@{ Tag = "col"; IsVoid = $true }
-		@{ Tag = "colgroup"; IsVoid = $false }
-		@{ Tag = "data"; IsVoid = $false }
-		@{ Tag = "datalist"; IsVoid = $false }
-		@{ Tag = "dd"; IsVoid = $false }
-		@{ Tag = "del"; IsVoid = $false }
-		@{ Tag = "details"; IsVoid = $false }
-		@{ Tag = "dfn"; IsVoid = $false }
-		@{ Tag = "dialog"; IsVoid = $false }
-		@{ Tag = "div"; IsVoid = $false }
-		@{ Tag = "dl"; IsVoid = $false }
-		@{ Tag = "dt"; IsVoid = $false }
-		@{ Tag = "em"; IsVoid = $false }
-		@{ Tag = "embed"; IsVoid = $true }
-		@{ Tag = "fieldset"; IsVoid = $false }
-		@{ Tag = "figcaption"; IsVoid = $false }
-		@{ Tag = "figure"; IsVoid = $false }
-		@{ Tag = "footer"; IsVoid = $false }
-		@{ Tag = "form"; IsVoid = $false }
-		@{ Tag = "h1"; IsVoid = $false }
-		@{ Tag = "h2"; IsVoid = $false }
-		@{ Tag = "h3"; IsVoid = $false }
-		@{ Tag = "h4"; IsVoid = $false }
-		@{ Tag = "h5"; IsVoid = $false }
-		@{ Tag = "h6"; IsVoid = $false }
-		@{ Tag = "head"; IsVoid = $false }
-		@{ Tag = "header"; IsVoid = $false }
-		@{ Tag = "hgroup"; IsVoid = $false }
-		@{ Tag = "hr"; IsVoid = $true }
-		@{ Tag = "html"; IsVoid = $false }
-		@{ Tag = "i"; IsVoid = $false }
-		@{ Tag = "iframe"; IsVoid = $false }
-		@{ Tag = "img"; IsVoid = $true }
-		@{ Tag = "input"; IsVoid = $true }
-		@{ Tag = "ins"; IsVoid = $false }
-		@{ Tag = "kbd"; IsVoid = $false }
-		@{ Tag = "label"; IsVoid = $false }
-		@{ Tag = "legend"; IsVoid = $false }
-		@{ Tag = "li"; IsVoid = $false }
-		@{ Tag = "link"; IsVoid = $true }
-		@{ Tag = "main"; IsVoid = $false }
-		@{ Tag = "map"; IsVoid = $false }
-		@{ Tag = "mark"; IsVoid = $false }
-		@{ Tag = "menu"; IsVoid = $false }
-		@{ Tag = "meta"; IsVoid = $true }
-		@{ Tag = "meter"; IsVoid = $false }
-		@{ Tag = "nav"; IsVoid = $false }
-		@{ Tag = "noscript"; IsVoid = $false }
-		@{ Tag = "object"; IsVoid = $false }
-		@{ Tag = "ol"; IsVoid = $false }
-		@{ Tag = "optgroup"; IsVoid = $false }
-		@{ Tag = "option"; IsVoid = $false }
-		@{ Tag = "output"; IsVoid = $false }
-		@{ Tag = "p"; IsVoid = $false }
-		@{ Tag = "picture"; IsVoid = $false }
-		@{ Tag = "pre"; IsVoid = $false }
-		@{ Tag = "progress"; IsVoid = $false }
-		@{ Tag = "q"; IsVoid = $false }
-		@{ Tag = "rp"; IsVoid = $false }
-		@{ Tag = "rt"; IsVoid = $false }
-		@{ Tag = "ruby"; IsVoid = $false }
-		@{ Tag = "s"; IsVoid = $false }
-		@{ Tag = "samp"; IsVoid = $false }
-		@{ Tag = "script"; IsVoid = $false }
-		@{ Tag = "search"; IsVoid = $false }
-		@{ Tag = "section"; IsVoid = $false }
-		@{ Tag = "select"; IsVoid = $false }
-		@{ Tag = "slot"; IsVoid = $false }
-		@{ Tag = "small"; IsVoid = $false }
-		@{ Tag = "source"; IsVoid = $true }
-		@{ Tag = "span"; IsVoid = $false }
-		@{ Tag = "strong"; IsVoid = $false }
-		@{ Tag = "style"; IsVoid = $false }
-		@{ Tag = "sub"; IsVoid = $false }
-		@{ Tag = "summary"; IsVoid = $false }
-		@{ Tag = "sup"; IsVoid = $false }
-		@{ Tag = "table"; IsVoid = $false }
-		@{ Tag = "tbody"; IsVoid = $false }
-		@{ Tag = "td"; IsVoid = $false }
-		@{ Tag = "template"; IsVoid = $false }
-		@{ Tag = "textarea"; IsVoid = $false }
-		@{ Tag = "tfoot"; IsVoid = $false }
-		@{ Tag = "th"; IsVoid = $false }
-		@{ Tag = "thead"; IsVoid = $false }
-		@{ Tag = "time"; IsVoid = $false }
-		@{ Tag = "title"; IsVoid = $false }
-		@{ Tag = "tr"; IsVoid = $false }
-		@{ Tag = "track"; IsVoid = $true }
-		@{ Tag = "u"; IsVoid = $false }
-		@{ Tag = "ul"; IsVoid = $false }
-		@{ Tag = "var"; IsVoid = $false }
-		@{ Tag = "video"; IsVoid = $false }
-		@{ Tag = "wbr"; IsVoid = $true }
+		@{ Tag = "a"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "abbr"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "address"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "area"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "article"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "aside"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "audio"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "b"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "base"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "bdi"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "bdo"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "blockquote"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "body"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "br"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "button"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "canvas"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "caption"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "cite"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "code"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "col"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "colgroup"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "data"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "datalist"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "dd"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "del"; IsConflict = $true; IsVoid = $false }
+		@{ Tag = "details"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "dfn"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "dialog"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "div"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "dl"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "dt"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "em"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "embed"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "fieldset"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "figcaption"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "figure"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "footer"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "form"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h1"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h2"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h3"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h4"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h5"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "h6"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "head"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "header"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "hgroup"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "hr"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "html"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "i"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "iframe"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "img"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "input"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "ins"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "kbd"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "label"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "legend"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "li"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "link"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "main"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "map"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "mark"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "menu"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "meta"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "meter"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "nav"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "noscript"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "object"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "ol"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "optgroup"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "option"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "output"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "p"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "picture"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "pre"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "progress"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "q"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "rp"; IsConflict = $true; IsVoid = $false }
+		@{ Tag = "rt"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "ruby"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "s"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "samp"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "script"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "search"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "section"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "select"; IsConflict = $true; IsVoid = $false }
+		@{ Tag = "slot"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "small"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "source"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "span"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "strong"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "style"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "sub"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "summary"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "sup"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "table"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "tbody"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "td"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "template"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "textarea"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "tfoot"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "th"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "thead"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "time"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "title"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "tr"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "track"; IsConflict = $false; IsVoid = $true }
+		@{ Tag = "u"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "ul"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "var"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "video"; IsConflict = $false; IsVoid = $false }
+		@{ Tag = "wbr"; IsConflict = $false; IsVoid = $true }
 	)
 }
