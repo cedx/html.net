@@ -127,6 +127,7 @@
 		"New-VarElement"
 		"New-VideoElement"
 		"New-WbrElement"
+		"New-Doctype"
 	)
 
 	PrivateData = @{

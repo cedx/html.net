@@ -20,6 +20,7 @@ $invariantCulture = Get-Culture ""
 	Set-Content "src/Elements/$cmdlet.g.cs" $content -NoNewline
 }
 
+$cmdletsToExport.Add("New-Doctype");
 $cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t`"$_`"" }) -join [Environment]::NewLine
 $content = Get-Content Html.psd1 -Raw
 Set-Content Html.psd1 ($content -replace "CmdletsToExport = @\([^)]+\)", "CmdletsToExport = @(`n$cmdlets`n`t)") -NoNewline
