@@ -14,6 +14,11 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// <summary>
 	/// TODO
 	/// </summary>
+	private static readonly string encodedDoubleQuote = WebUtility.HtmlEncode("\"");
+
+	/// <summary>
+	/// TODO
+	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable? Attributes { get; set; }
 
@@ -21,7 +26,7 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// TODO
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Class { get; set; } = "";
+	public string[] Class { get; set; } = [];
 
 	/// <summary>
 	/// TODO
@@ -39,23 +44,29 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// TODO
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Style { get; set; } = "";
+	public Hashtable? Style { get; set; }
 
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() {
 		Attributes ??= [];
+		Style ??= [];
+
+		var className = string.Join(' ', Class);
+		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
+
 		if (!string.IsNullOrWhiteSpace(Id)) Attributes["id"] = Id;
-		if (!string.IsNullOrWhiteSpace(Class)) Attributes["class"] = Class;
-		if (!string.IsNullOrWhiteSpace(Style)) Attributes["style"] = Style;
+		if (!string.IsNullOrWhiteSpace(className)) Attributes["class"] = className;
+		if (!string.IsNullOrWhiteSpace(style)) Attributes["style"] = style;
 
 		var builder = new StringBuilder($"<{tag}");
-		foreach (DictionaryEntry attribute in Attributes) {
-			if (attribute.Value is bool booleanValue)
+		foreach (var attribute in Attributes.Cast<DictionaryEntry>()) {
+			if (attribute.Value is bool booleanValue) {
 				if (booleanValue) builder.Append($" {attribute.Key}");
+			}
 			else {
-				var value = Convert.ToString(attribute.Value)?.Replace("\"", "&quot;");
+				var value = Convert.ToString(attribute.Value)?.Replace("\"", encodedDoubleQuote);
 				if (!string.IsNullOrWhiteSpace(value)) builder.Append($" {attribute.Key}=\"{value}\"");
 			}
 		}

@@ -12,6 +12,7 @@ Describe "New-Doctype" {
 		@{ Value = 'html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"'; Expected = '<!doctype html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">' }
 		@{ Value = 'html public "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"'; Expected = '<!doctype html public "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'}
 	) {
-		New-HtmlDoctype $value | Should -BeExactly $expected
+		New-Doctype $value | Should -BeExactly $expected
+		doctype $value | Should -BeExactly $expected
 	}
 }

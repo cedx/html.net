@@ -7,7 +7,7 @@ $cmdletsToExport.Add("New-Doctype")
 
 (Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements | ForEach-Object {
 	$replacements = @{
-		Alias = $_.IsConflict ? "$($_.Tag)tag" : $_.Tag
+		Alias = $_.IsConflict ? "$($_.Tag)Tag" : $_.Tag
 		CapitalizedTag = [char]::ToUpperInvariant($_.Tag[0]) + $_.Tag.Substring(1)
 		IsVoid = $_.IsVoid.ToString().ToLowerInvariant()
 		Tag = $_.Tag
