@@ -1,14 +1,14 @@
 using namespace System.Collections.Generic
 
 "Deploying the assets..."
-$cmdletTemplate = Get-Content res/CmdletTemplate.cs -Raw
+$cmdletTemplate = Get-Content res/Cmdlet.tpl -Raw
 $cmdletsToExport = [List[string]]::new()
 $cmdletsToExport.Add("New-CustomElement")
 $cmdletsToExport.Add("New-Doctype")
 
-(Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements | ForEach-Object {
+(Import-PowerShellDataFile res/Elements.psd1).Elements | ForEach-Object {
 	$parameters = @{
-		Alias = $_.IsConflict ? "$($_.Tag)Tag" : $_.Tag
+		Alias = (Get-Alias $_.Tag -ErrorAction Ignore) ? "$($_.Tag)Tag" : $_.Tag
 		CapitalizedTag = [char]::ToUpperInvariant($_.Tag[0]) + $_.Tag.Substring(1)
 		IsVoid = $_.IsVoid.ToString().ToLowerInvariant()
 		Tag = $_.Tag
