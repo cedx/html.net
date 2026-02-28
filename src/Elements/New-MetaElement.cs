@@ -7,10 +7,28 @@ namespace Belin.Html.Cmdlets.Elements;
 public class NewMetaElementCommand(): NewElementCommand("meta", isVoid: true) {
 
 	/// <summary>
-	/// The character encoding in which the document is encoded.
+	/// A charset declaration, giving the character encoding in which the document is encoded.
 	/// </summary>
-	[Parameter]
-	public string Charset { get; set; } = "";
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Charset))]
+	public required string Charset { get; set; }
+
+	/// <summary>
+	/// Contains the value for the <c>http-equiv</c> or <c>name attribute</c>, depending on which is used.
+	/// </summary>
+	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv)), Parameter(Mandatory = true, ParameterSetName = nameof(Name))]
+	public override object? Content { get => base.Content; set => base.Content = value; }
+
+	/// <summary>
+	/// A pragma directive to simulate directives that could otherwise be given by an HTTP header.
+	/// </summary>
+	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv))]
+	public required string HttpEquiv { get; set; }
+
+	/// <summary>
+	/// Document-level metadata that applies to the whole page.
+	/// </summary>
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Name))]
+	public required string Name { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the attributes of this element.
@@ -18,6 +36,19 @@ public class NewMetaElementCommand(): NewElementCommand("meta", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (!string.IsNullOrWhiteSpace(Charset)) attributes["charset"] = Charset.Trim();
+
+		switch (ParameterSetName) {
+			case nameof(Charset):
+				attributes["charset"] = Charset;
+				break;
+			case nameof(HttpEquiv):
+				attributes["http-equiv"] = HttpEquiv;
+				attributes["content"] = Content;
+				break;
+			case nameof(Name):
+				attributes["name"] = Name;
+				attributes["content"] = Content;
+				break;
+		}
 	}
 }

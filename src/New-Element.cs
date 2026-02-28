@@ -9,7 +9,7 @@ using System.Text;
 /// </summary>
 /// <param name="tagName">The tag name of the element to create.</param>
 /// <param name="isVoid">Value indicating whether the element to create is a void element.</param>
-public abstract class NewElementCommand(string tagName, bool isVoid = false): Cmdlet {
+public abstract class NewElementCommand(string tagName, bool isVoid = false): PSCmdlet {
 
 	/// <summary>
 	/// The HTML-encoded string corresponding to a double quote.
@@ -92,8 +92,8 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): Cm
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
 		var className = string.Join(' ', Class);
 		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
-		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id.Trim();
-		if (!string.IsNullOrWhiteSpace(className)) attributes["class"] = className.Trim();
-		if (!string.IsNullOrWhiteSpace(style)) attributes["style"] = style.Trim();
+		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
+		if (!string.IsNullOrWhiteSpace(className)) attributes["class"] = className;
+		if (!string.IsNullOrWhiteSpace(style)) attributes["style"] = style;
 	}
 }
