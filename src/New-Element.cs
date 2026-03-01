@@ -43,6 +43,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public Hashtable Data { get; set; } = [];
 
 	/// <summary>
+	/// The directionality of the element's text.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "ltr", "rtl")]
+	public string? Dir { get; set; }
+
+	/// <summary>
 	/// The element identifier.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -52,6 +58,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// Value indicating whether the element to create is a void element.
 	/// </summary>
 	public bool IsVoid { get; protected set; } = isVoid;
+
+	/// <summary>
+	/// The element's language.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public CultureInfo? Lang { get; set; }
 
 	/// <summary>
 	/// The CSS styling declarations applied to this element.
@@ -100,6 +112,8 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
+		if (Dir is not null) attributes["dir"] = Dir;
+		if (Lang is not null) attributes["lang"] = Lang.Name;
 
 		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) {
 			var attribute = $"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}";
