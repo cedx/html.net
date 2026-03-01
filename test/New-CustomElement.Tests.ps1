@@ -33,6 +33,11 @@ Describe "New-CustomElement" {
 		tag my-element -Attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } -Void | Should -BeIn $expected
 	}
 
+	It "should handle data attributes" {
+		$expected = '<my-element data-bs-toggle="tooltip" data-push-url></my-element>', '<my-element data-push-url data-bs-toggle="tooltip"></my-element>'
+		tag my-element -Data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
+	}
+
 	It "should handle the inner content" {
 		$expected = "<outer-element><inner-element>Foo &gt; Bar <span>Baz &lt; Qux</span></inner-element></outer-element>"
 		tag outer-element { tag inner-element { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected

@@ -1,6 +1,7 @@
 namespace Belin.Html.Cmdlets;
 
 using System.Collections;
+using System.Globalization;
 using System.Net;
 using System.Text;
 using System.Text.Json;
@@ -76,7 +77,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 				if (rendered) builder.Append($" {key}");
 			}
 			else {
-				var stringValue = Convert.ToString(value)?.Replace("\"", encodedDoubleQuote);
+				var stringValue = Convert.ToString(value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote);
 				if (!string.IsNullOrWhiteSpace(stringValue)) builder.Append($" {key}=\"{stringValue}\"");
 			}
 		}
@@ -97,11 +98,17 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
-		var className = string.Join(' ', Class);
-		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
-		if (!string.IsNullOrWhiteSpace(className)) attributes["class"] = className;
-		if (!string.IsNullOrWhiteSpace(style)) attributes["style"] = style;
-		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
+		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
+
+		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) {
+			var attribute = $"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}";
+			attributes[attribute] = entry.Value;
+		}
+
+		if (Style.Count > 0) {
+			var rules = Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote)}");
+			attributes["style"] = string.Join("; ", rules);
+		}
 	}
 }
