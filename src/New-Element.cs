@@ -73,12 +73,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 
 		var builder = new StringBuilder($"<{TagName}");
 		foreach (var (key, value) in attributes) if (value is not null) {
-			if (value is bool rendered) {
-				if (rendered) builder.Append($" {key}");
+			if (value is bool booleanValue) {
+				if (booleanValue) builder.Append($" {key}");
 			}
 			else {
 				var stringValue = Convert.ToString(value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote);
-				if (!string.IsNullOrWhiteSpace(stringValue)) builder.Append($" {key}=\"{stringValue}\"");
+				builder.Append($" {key}=\"{stringValue}\"");
 			}
 		}
 
