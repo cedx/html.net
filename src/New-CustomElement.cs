@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets;
 /// Provides the abstract base class for a cmdlet generating an HTML element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "CustomElement"), Alias("tag"), OutputType(typeof(string))]
-public class NewCustomElementCommand(): NewElementCommand("", isVoid: false) {
+public class NewCustomElementCommand(): WriteHtmlElementCommand("", isVoid: false) {
 
 	/// <summary>
 	/// The inner HTML of this element.
