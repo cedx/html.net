@@ -4,7 +4,7 @@ using namespace System.Collections.Generic
 $cmdletTemplate = Get-Content res/Cmdlet.tpl -Raw
 $cmdletsToExport = [List[string]]::new()
 $cmdletsToExport.Add("New-CustomElement")
-$cmdletsToExport.Add("New-Doctype")
+$cmdletsToExport.Add("New-DocumentType")
 
 (Import-PowerShellDataFile res/Elements.psd1).Elements | ForEach-Object {
 	$parameters = @{

@@ -15,7 +15,7 @@
 
 	CmdletsToExport = @(
 		"New-CustomElement"
-		"New-Doctype"
+		"New-DocumentType"
 		"New-AElement"
 		"New-AbbrElement"
 		"New-AddressElement"

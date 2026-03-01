@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-	Tests the features of the `New-Doctype` cmdlet.
+	Tests the features of the `New-DocumentType` cmdlet.
 #>
-Describe "New-Doctype" {
+Describe "New-DocumentType" {
 	BeforeAll {
 		Import-Module "$PSScriptRoot/../Html.psd1"
 	}
