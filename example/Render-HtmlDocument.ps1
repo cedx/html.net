@@ -19,10 +19,10 @@ $template = {
 			link -rel icon -href Favicon.ico
 			link -rel preload -href Assets/Font.woff2 -as font -crossorigin anonymous -type font/woff2
 
-			link -rel stylesheet -href "https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.css" -integrity "sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4" -crossorigin anonymous
+			link -rel stylesheet -href "https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.css" -integrity "sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4"
 			link -rel stylesheet -href Assets/Styles.css
 
-			script -src "https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.js" -integrity "sha256-ew8UiV1pJH/YjpOEBInP1HxVvT/SfrCmwSoUzF9JIgc=" -crossorigin anonymous
+			script -src "https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.js" -integrity "sha256-ew8UiV1pJH/YjpOEBInP1HxVvT/SfrCmwSoUzF9JIgc="
 			script -src Assets/Scripts.js -type module
 		}
 
@@ -35,22 +35,25 @@ $template = {
 						}
 
 						div -class navbar-brand, d-flex, align-items-center {
-							img -alt "" -src Favicon.ico -width 30 -height 30
-							div "My Application" -class ms-2
+							a -href Index.html { img -alt "" -src Favicon.ico -width 30 -height 30 }
+							div -class ms-2 "My Application"
 						}
 					}
 				}
 			}
 
 			main {
-				noscript { "This application requires "; b JavaScript; " to be enabled in your browser." }
+				noscript {
+					"This application requires "; b JavaScript; " to be enabled in your browser."
+				}
 
-				"TODO"
+				article -class container-xl {
+					h1 "My Title"
+					div -class alert, alert-success "Welcome to my website!"
+				}
 			}
 
-			footer {
-				"TODO"
-			}
+			footer "Copyright &copy; $([datetime]::Now.Year) - All rights reserved."
 		}
 	}
 }

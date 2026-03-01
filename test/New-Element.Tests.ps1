@@ -24,16 +24,16 @@ Describe "New-Element" {
 	}
 
 	It 'should handle the "class" attribute' {
-		body -Class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
+		body -class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
 	}
 
 	It 'should handle the "id" attribute' {
-		article -Id foo | Should -BeExactly '<article id="foo"></article>'
+		article -id foo | Should -BeExactly '<article id="foo"></article>'
 	}
 
 	It 'should handle the "style" attribute' {
 		$expected = '<code style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></code>', '<code style="font-size: 1rem; font-family: &quot;Segoe UI&quot;"></code>'
-		code -Style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
+		code -style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
 	}
 
 	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {
