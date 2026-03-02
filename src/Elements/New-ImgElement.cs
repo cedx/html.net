@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// Creates a new <c>img</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "ImgElement"), Alias("img"), OutputType(typeof(string))]
-public class NewImgElementCommand(): WriteHtmlElementCommand("img", isVoid: true) {
+public class NewImgElementCommand(): NewElementCommandBase("img", isVoid: true) {
 
 	/// <summary>
 	/// A text that can replace the image in the page.

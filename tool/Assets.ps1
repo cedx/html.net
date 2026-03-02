@@ -5,7 +5,6 @@ $cmdletTemplate = Get-Content share/CmdletTemplate.tpl -Raw
 $cmdletsToExport = [List[string]]::new([string[]] @(
 	"New-CustomElement"
 	"New-DocumentType"
-	"Write-HtmlTemplate"
 ))
 
 New-Item src/Generated -Force -ItemType Directory | Out-Null

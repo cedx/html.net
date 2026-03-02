@@ -11,7 +11,7 @@ using System.Text.Json;
 /// </summary>
 /// <param name="tagName">The tag name of the element to create.</param>
 /// <param name="isVoid">Value indicating whether the element to create is a void element.</param>
-public abstract class WriteHtmlElementCommand(string tagName, bool isVoid = false): PSCmdlet {
+public abstract class NewElementCommandBase(string tagName, bool isVoid = false): PSCmdlet {
 
 	/// <summary>
 	/// The HTML-encoded string corresponding to a double quote.
@@ -55,11 +55,6 @@ public abstract class WriteHtmlElementCommand(string tagName, bool isVoid = fals
 	public string Id { get; set; } = "";
 
 	/// <summary>
-	/// Value indicating whether the element to create is a void element.
-	/// </summary>
-	public bool IsVoid { get; protected set; } = isVoid;
-
-	/// <summary>
 	/// The element's language.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,15 +73,26 @@ public abstract class WriteHtmlElementCommand(string tagName, bool isVoid = fals
 	public Hashtable Style { get; set; } = [];
 
 	/// <summary>
+	/// Determine the relative ordering of this element for sequential focus navigation.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public int? TabIndex { get; set; }
+
+	/// <summary>
 	/// A text representing advisory information related to this element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Title { get; set; } = "";
 
 	/// <summary>
+	/// Value indicating whether the element to create is a void element.
+	/// </summary>
+	protected bool IsVoid { get; set; } = isVoid;
+
+	/// <summary>
 	/// The tag name of the element to create.
 	/// </summary>
-	public string TagName { get; protected set; } = tagName;
+	protected string TagName { get; set; } = tagName;
 
 	/// <summary>
 	/// Performs execution of this command.

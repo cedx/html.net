@@ -4,7 +4,7 @@
 #>
 Describe "New-CustomElement" {
 	BeforeAll {
-		Import-Module "$PSScriptRoot/../Html.psd1"
+		Import-Module "$PSScriptRoot/../../Html.psd1"
 	}
 
 	It "should create a custom HTML element from the specified tag name" {

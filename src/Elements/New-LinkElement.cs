@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// Creates a new <c>link</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "LinkElement"), Alias("link"), OutputType(typeof(string))]
-public class NewLinkElementCommand(): WriteHtmlElementCommand("link", isVoid: true) {
+public class NewLinkElementCommand(): NewElementCommandBase("link", isVoid: true) {
 
 	/// <summary>
 	/// Specifies the type of content being loaded by the <c>link</c>.
