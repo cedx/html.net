@@ -9,13 +9,13 @@ public class NewCanvasElementCommand(): NewElementCommandBase("canvas", isVoid: 
 	/// <summary>
 	/// The height of the coordinate space in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// The width of the coordinate space in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

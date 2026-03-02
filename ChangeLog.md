@@ -2,8 +2,8 @@
 
 ## Version [0.4.0](https://github.com/cedx/html.net/compare/v0.3.0...v0.4.0)
 - Added support for the `on*` and `tabindex` attributes.
-- Added the `New-AudioElement`, `New-BlockquoteElement` and `New-CanvasElement` cmdlets.
-- Added the `audio`, `blockquote` and `canvas` aliases.
+- Added the `New-AudioElement`, `New-BlockquoteElement`, `New-CanvasElement` and `New-ColElement` cmdlets.
+- Added the `audio`, `blockquote`, `canvas` and `col` aliases.
 - Renamed the `New-Doctype` cmdlet to `New-DocumentType`.
 
 ## Version [0.3.0](https://github.com/cedx/html.net/compare/v0.2.0...v0.3.0)

@@ -15,7 +15,7 @@ public class NewImgElementCommand(): NewElementCommandBase("img", isVoid: true) 
 	/// <summary>
 	/// The intrinsic height of the image, in pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
@@ -57,7 +57,7 @@ public class NewImgElementCommand(): NewElementCommandBase("img", isVoid: true) 
 	/// <summary>
 	/// The intrinsic width of the image, in pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>
