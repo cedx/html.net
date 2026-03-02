@@ -1,0 +1,23 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>colgroup</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "ColgroupElement"), Alias("colgroup"), OutputType(typeof(string))]
+public class NewColgroupElementCommand(): NewElementCommandBase("colgroup", isVoid: false) {
+
+	/// <summary>
+	/// The number of consecutive columns the element spans.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.Positive)]
+	public int Span { get; set; }
+
+	/// <summary>
+	/// Populates the specified attribute collection with the element attributes.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (Span > 0) attributes["span"] = Span;
+	}
+}
