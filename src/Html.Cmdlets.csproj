@@ -3,7 +3,7 @@
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>A simple template engine for rendering HTML documents.</Description>
-		<Product>HTML Template Engine for PowerShell</Product>
+		<Product>HtmlForPS</Product>
 		<Version>0.4.0</Version>
 	</PropertyGroup>
 

@@ -1,4 +1,4 @@
-# HTML Template Engine for PowerShell
+# HtmlForPS
 A simple [PowerShell](https://learn.microsoft.com/en-us/powershell) template engine for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
 
 ## Documentation
@@ -10,4 +10,4 @@ A simple [PowerShell](https://learn.microsoft.com/en-us/powershell) template eng
 - [Submit an issue](https://github.com/cedx/html.net/issues)
 
 ## License
-[HTML Template Engine for PowerShell](https://github.com/cedx/html.net) is distributed under the MIT License.
+[HtmlForPS](https://github.com/cedx/html.net) is distributed under the MIT License.
