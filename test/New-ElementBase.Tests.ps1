@@ -36,6 +36,10 @@ Describe "Write-HtmlElement" {
 		code -style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
 	}
 
+	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
+		div -tabindex $_ | Should -BeExactly "<div tabindex=`"$_`"></div>"
+	}
+
 	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {
 		div -title $_ | Should -BeExactly ($_ ? '<div title="A &quot;custom&quot; label."></div>' : "<div></div>")
 	}

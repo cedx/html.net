@@ -28,6 +28,14 @@ Describe "New-CustomElement" {
 		tag my-element -style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
 	}
 
+	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
+		tag my-element -tabindex $_ | Should -BeExactly "<my-element tabindex=`"$_`"></my-element>"
+	}
+
+	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {
+		tag my-element -title $_ | Should -BeExactly ($_ ? '<my-element title="A &quot;custom&quot; label."></my-element>' : "<my-element></my-element>")
+	}
+
 	It "should handle custom attributes" {
 		$expected = '<my-element data-foo="&quot;bar&quot;" required />', '<my-element required data-foo="&quot;bar&quot;" />'
 		tag my-element -attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } -Void | Should -BeIn $expected

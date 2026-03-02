@@ -73,7 +73,7 @@ public abstract class NewElementCommandBase(string tagName, bool isVoid = false)
 	public Hashtable Style { get; set; } = [];
 
 	/// <summary>
-	/// Determine the relative ordering of this element for sequential focus navigation.
+	/// Determines the relative ordering of this element for sequential focus navigation.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public int? TabIndex { get; set; }
@@ -134,6 +134,7 @@ public abstract class NewElementCommandBase(string tagName, bool isVoid = false)
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		if (On.Count > 0) foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
+		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 
 		if (Style.Count > 0) {
