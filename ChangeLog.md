@@ -1,9 +1,9 @@
 # Changelog
 
 ## Version [0.6.0](https://github.com/cedx/html.net/compare/v0.5.0...v0.6.0)
-- Added the `Html` prefix to the cmdlet nouns.
-- Added the `New-TimeElement` and `New-TrackElement` cmdlets.
-- Added the `time` and `track` aliases.
+- Added the `Html` prefix to the nouns of all cmdlets.
+- Added the `New-ThElement`, `New-TimeElement` and `New-TrackElement` cmdlets.
+- Added the `th`, `time` and `track` aliases.
 
 ## Version [0.5.0](https://github.com/cedx/html.net/compare/v0.4.0...v0.5.0)
 - Added the `New-ColGroupElement`, `New-DataElement`, `New-StyleElement` and `New-VideoElement` cmdlets.

@@ -22,8 +22,8 @@ Describe "New-TimeElement" {
 		time -datetime $value | Should -BeLikeExactly '<time datetime="08:16:32.*"></time>'
 	}
 
-	# It 'should support [TimeSpan] objects for the "datetime" attribute' {
-	# 	$value = New-TimeSpan
-	# 	time -datetime $value | Should -BeExactly '<time datetime="TODO"></time>'
-	# }
+	It 'should support [TimeSpan] objects for the "datetime" attribute' {
+		$value = New-TimeSpan -Days 3 -Hours 5 -Minutes 19 -Seconds 7
+		time -datetime $value | Should -BeExactly '<time datetime="P3DT5H19M7S"></time>'
+	}
 }
