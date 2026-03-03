@@ -1,19 +1,19 @@
 namespace Belin.Html.Cmdlets.Elements;
 
 /// <summary>
-/// Creates a new <c>audio</c> element.
+/// Creates a new <c>video</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "AudioElement"), Alias("audio"), OutputType(typeof(string))]
-public class NewAudioElementCommand(): NewElementCommandBase("audio", isVoid: false) {
+[Cmdlet(VerbsCommon.New, "VideoElement"), Alias("video"), OutputType(typeof(string))]
+public class NewVideoElementCommand(): NewElementCommandBase("video", isVoid: false) {
 
 	/// <summary>
-	/// Value indicating whether playback should start automatically as soon as the audio signal allows.
+	/// Value indicating whether playback should start automatically as soon as the video signal allows.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public SwitchParameter AutoPlay { get; set; }
 
 	/// <summary>
-	/// Value indicating whether to offer controls to allow the user to control audio playback.
+	/// Value indicating whether to offer controls to allow the user to control video playback.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public SwitchParameter Controls { get; set; }
@@ -25,13 +25,25 @@ public class NewAudioElementCommand(): NewElementCommandBase("audio", isVoid: fa
 	public string? CrossOrigin { get; set; }
 
 	/// <summary>
+	/// Value indicating whether to prevent the browser from suggesting a Picture-in-Picture context menu or to request Picture-in-Picture automatically.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter DisablePictureInPicture { get; set; }
+
+	/// <summary>
 	/// Value indicating whether to disable the capability of remote playback in devices that are attached using wired and wireless technologies.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public SwitchParameter DisableRemotePlayback { get; set; }
 
 	/// <summary>
-	/// Value indicating whether the audio player will automatically seek back to the start upon reaching the end of the audio.
+	/// The height of the video's display area, in CSS pixels.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	public int Height { get; set; } = -1;
+
+	/// <summary>
+	/// Value indicating whether the video player will automatically seek back to the start upon reaching the end of the video.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public SwitchParameter Loop { get; set; }
@@ -43,16 +55,34 @@ public class NewAudioElementCommand(): NewElementCommandBase("audio", isVoid: fa
 	public SwitchParameter Muted { get; set; }
 
 	/// <summary>
+	/// Value indicating whether the video is to be played "inline", that is, within the element's playback area.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter PlaysInline { get; set; }
+
+	/// <summary>
+	/// The URL for an image to be shown while the video is downloading.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Uri? Poster { get; set; }
+
+	/// <summary>
 	/// Value providing a hint to the browser about what the author thinks will lead to the best user experience.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "none", "metadata")]
 	public string? Preload { get; set; }
 
 	/// <summary>
-	/// The URL of the audio to embed.
+	/// The URL of the video to embed.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Uri? Src { get; set; }
+
+	/// <summary>
+	/// The width of the video's display area, in CSS pixels.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	public int Width { get; set; } = -1;
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.
@@ -63,10 +93,15 @@ public class NewAudioElementCommand(): NewElementCommandBase("audio", isVoid: fa
 		if (AutoPlay) attributes["autoplay"] = true;
 		if (Controls) attributes["controls"] = true;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
+		if (DisablePictureInPicture) attributes["disablepictureinpicture"] = true;
 		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
+		if (Height >= 0) attributes["height"] = Height;
 		if (Loop) attributes["loop"] = true;
 		if (Muted) attributes["muted"] = true;
+		if (PlaysInline) attributes["playsinline"] = true;
+		if (Poster is not null) attributes["poster"] = Poster.ToString();
 		if (Preload is not null) attributes["preload"] = Preload;
 		if (Src is not null) attributes["src"] = Src.ToString();
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }
