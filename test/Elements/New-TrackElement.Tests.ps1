@@ -11,7 +11,7 @@ Describe "New-TrackElement" {
 		track -src Subtitles.vtt -default | Should -BeIn '<track src="Subtitles.vtt" default />', '<track default src="Subtitles.vtt" />'
 	}
 
-	It 'should support the "kind" attribute' -ForEach "captions", "chapters", "descriptions", "metadata", "subtitles" {
+	It 'should support the "kind" attribute' -ForEach captions, chapters, descriptions, metadata, subtitles {
 		track -src Subtitles.vtt -kind $_ | Should -BeIn "<track src=`"Subtitles.vtt`" kind=`"$_`" />", "<track kind=`"$_`" src=`"Subtitles.vtt`" />"
 	}
 }

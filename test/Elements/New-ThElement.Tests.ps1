@@ -15,7 +15,7 @@ Describe "New-ThElement" {
 		th -headers tid1, tid2 | Should -BeExactly '<th headers="tid1 tid2"></th>'
 	}
 
-	It 'should support the "scope" attribute' -ForEach "col", "colgroup", "row", "rowgroup" {
+	It 'should support the "scope" attribute' -ForEach col, colgroup, row, rowgroup {
 		th -scope $_ | Should -BeExactly "<th scope=`"$_`"></th>"
 	}
 }

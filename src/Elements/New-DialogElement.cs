@@ -1,0 +1,30 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>dialog</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "HtmlDialogElement"), Alias("dialog"), OutputType(typeof(string))]
+public class NewDialogElementCommand(): NewElementCommand("dialog", isVoid: false) {
+
+	/// <summary>
+	/// Specifies the types of user actions that can be used to close the element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("any", "closerequest", "none")]
+	public string? ClosedBy { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the dialog box is active and is available for interaction.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Open { get; set; }
+
+	/// <summary>
+	/// Populates the specified attribute collection with the element attributes.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (ClosedBy is not null) attributes["closedby"] = ClosedBy;
+		if (Open) attributes["open"] = true;
+	}
+}
