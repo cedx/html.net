@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>col</c> element.
 /// </summary>
@@ -18,6 +20,6 @@ public class NewColElementCommand(): NewElementCommand("col", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Span > 0) attributes["span"] = Span;
+		if (Span > 0) attributes["span"] = Span.ToString(CultureInfo.InvariantCulture);
 	}
 }

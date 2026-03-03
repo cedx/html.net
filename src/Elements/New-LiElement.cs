@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>li</c> element.
 /// </summary>
@@ -9,8 +11,8 @@ public class NewLiElementCommand(): NewElementCommand("li", isVoid: false) {
 	/// <summary>
 	/// Value indicating the current ordinal value of the list item as defined by the <c>ol</c> element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
-	public int Value { get; set; } = -1;
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public int? Value { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.
@@ -18,6 +20,6 @@ public class NewLiElementCommand(): NewElementCommand("li", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Value >= 0) attributes["value"] = Value;
+		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
 	}
 }

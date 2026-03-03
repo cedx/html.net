@@ -134,7 +134,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		if (On.Count > 0) foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
-		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value;
+		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 
 		if (Style.Count > 0) {

@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>embed</c> element.
 /// </summary>
@@ -38,7 +40,7 @@ public class NewEmbedElementCommand(): NewElementCommand("embed", isVoid: true) 
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
 		attributes["type"] = Type;
-		if (Height >= 0) attributes["height"] = Height;
-		if (Width >= 0) attributes["width"] = Width;
+		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
 	}
 }

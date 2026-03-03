@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>th</c> element.
 /// </summary>
@@ -30,8 +32,8 @@ public class NewTdElementCommand(): NewElementCommand("td", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (ColSpan >= 0) attributes["colspan"] = ColSpan;
+		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);
 		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers);
-		if (RowSpan >= 0) attributes["rowspan"] = RowSpan;
+		if (RowSpan >= 0) attributes["rowspan"] = RowSpan.ToString(CultureInfo.InvariantCulture);
 	}
 }

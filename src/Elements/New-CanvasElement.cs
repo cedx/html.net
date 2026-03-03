@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>canvas</c> element.
 /// </summary>
@@ -24,7 +26,7 @@ public class NewCanvasElementCommand(): NewElementCommand("canvas", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Height >= 0) attributes["height"] = Height;
-		if (Width >= 0) attributes["width"] = Width;
+		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
 	}
 }

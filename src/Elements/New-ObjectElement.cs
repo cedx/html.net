@@ -1,5 +1,7 @@
 namespace Belin.Html.Cmdlets.Elements;
 
+using System.Globalization;
+
 /// <summary>
 /// Creates a new <c>object</c> element.
 /// </summary>
@@ -50,8 +52,8 @@ public class NewObjectElementCommand(): NewElementCommand("object", isVoid: fals
 		base.RenderAttributes(attributes);
 		attributes["data"] = Data.ToString();
 		attributes["type"] = Type;
-		if (Height >= 0) attributes["height"] = Height;
+		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Width >= 0) attributes["width"] = Width;
+		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
 	}
 }
