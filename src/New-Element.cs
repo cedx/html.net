@@ -11,7 +11,7 @@ using System.Text.Json;
 /// </summary>
 /// <param name="tagName">The tag name of the element to create.</param>
 /// <param name="isVoid">Value indicating whether the element to create is a void element.</param>
-public abstract class NewElementCommandBase(string tagName, bool isVoid = false): PSCmdlet {
+public abstract class NewElementCommand(string tagName, bool isVoid = false): PSCmdlet {
 
 	/// <summary>
 	/// The HTML-encoded string corresponding to a double quote.

@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// Creates a new <c>colgroup</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "ColgroupElement"), Alias("colgroup"), OutputType(typeof(string))]
-public class NewColgroupElementCommand(): NewElementCommandBase("colgroup", isVoid: false) {
+public class NewColgroupElementCommand(): NewElementCommand("colgroup", isVoid: false) {
 
 	/// <summary>
 	/// The number of consecutive columns the element spans.

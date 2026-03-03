@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// Creates a new <c>button</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "ButtonElement"), Alias("button"), OutputType(typeof(string))]
-public class NewButtonElementCommand(): NewElementCommandBase("button", isVoid: false) {
+public class NewButtonElementCommand(): NewElementCommand("button", isVoid: false) {
 
 	/// <summary>
 	/// Value indicating whether the button should have input focus when the page loads.

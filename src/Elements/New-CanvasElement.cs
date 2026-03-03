@@ -4,7 +4,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// Creates a new <c>canvas</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "CanvasElement"), Alias("canvas"), OutputType(typeof(string))]
-public class NewCanvasElementCommand(): NewElementCommandBase("canvas", isVoid: false) {
+public class NewCanvasElementCommand(): NewElementCommand("canvas", isVoid: false) {
 
 	/// <summary>
 	/// The height of the coordinate space in CSS pixels.
