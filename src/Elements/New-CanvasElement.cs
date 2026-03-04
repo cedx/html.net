@@ -24,7 +24,7 @@ public class NewCanvasElementCommand(): NewElementCommand("canvas", isVoid: fals
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
 		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);

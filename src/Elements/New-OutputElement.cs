@@ -28,7 +28,7 @@ public class NewOutputElementCommand(): NewElementCommand("output", isVoid: fals
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (For.Length > 0) attributes["for"] = string.Join(' ', For);
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;

@@ -22,7 +22,7 @@ public class NewInsElementCommand(): NewElementCommand("ins", isVoid: false) {
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Cite is not null) attributes["cite"] = Cite.ToString();
 

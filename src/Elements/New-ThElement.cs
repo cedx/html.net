@@ -42,7 +42,7 @@ public class NewThElementCommand(): NewElementCommand("th", isVoid: false) {
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (!string.IsNullOrWhiteSpace(Abbr)) attributes["abbr"] = Abbr;
 		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);

@@ -28,7 +28,7 @@ public class NewFieldsetElementCommand(): NewElementCommand("fieldset", isVoid: 
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;

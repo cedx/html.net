@@ -36,7 +36,7 @@ public class NewEmbedElementCommand(): NewElementCommand("embed", isVoid: true) 
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
 		attributes["type"] = Type;

@@ -1,7 +1,7 @@
 using namespace System.Collections.Generic
 
 "Deploying the assets..."
-$cmdletTemplate = Get-Content share/CmdletTemplate.tpl -Raw
+$cmdletTemplate = Get-Content share/Cmdlet.Template.cs -Raw
 $cmdletsToExport = [List[string]]::new([string[]] @(
 	"New-HtmlCustomElement"
 	"New-HtmlDocumentType"

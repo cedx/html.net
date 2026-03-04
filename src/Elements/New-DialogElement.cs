@@ -22,7 +22,7 @@ public class NewDialogElementCommand(): NewElementCommand("dialog", isVoid: fals
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (ClosedBy is not null) attributes["closedby"] = ClosedBy;
 		if (Open) attributes["open"] = true;

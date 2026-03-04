@@ -90,7 +90,7 @@ public class NewVideoElementCommand(): NewElementCommand("video", isVoid: false)
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (AutoPlay) attributes["autoplay"] = true;
 		if (Controls) attributes["controls"] = true;

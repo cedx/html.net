@@ -22,7 +22,7 @@ public class NewOptgroupElementCommand(): NewElementCommand("optgroup", isVoid: 
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["label"] = Label;
 		if (Disabled) attributes["disabled"] = true;

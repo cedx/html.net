@@ -127,7 +127,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
-	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
+	protected virtual void RenderAttributes(IDictionary<string, object?> attributes) {
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
 		if (DataSet.Count > 0) foreach (DictionaryEntry entry in DataSet) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
