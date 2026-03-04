@@ -1,8 +1,8 @@
 # Changelog
 
 ## Version [0.10.0](https://github.com/cedx/html.net/compare/v0.9.0...v0.10.0)
-- Added the `New-QElement` and `New-SlotElement` cmdlets.
-- Added the `q` and `slot` aliases.
+- Added the `New-QElement`, `New-SlotElement` and `New-SourceElement` cmdlets.
+- Added the `q`, `slot` and `source` aliases.
 
 ## Version [0.9.0](https://github.com/cedx/html.net/compare/v0.8.0...v0.9.0)
 - Added the `New-OlElement`, `New-OptgroupElement`, `New-OptionElement`, `New-OutputElement` and `New-ProgressElement` cmdlets.

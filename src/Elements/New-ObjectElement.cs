@@ -33,7 +33,7 @@ public class NewObjectElementCommand(): NewElementCommand("object", isVoid: fals
 	public string Name { get; set; } = "";
 
 	/// <summary>
-	/// The media type to use to select the plug-in to instantiate.
+	/// The media type to use, optionally including a <c>codecs</c> parameter.
 	/// </summary>
 	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
 	public required string Type { get; set; }
