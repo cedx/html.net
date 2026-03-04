@@ -1,16 +1,22 @@
 namespace Belin.Html.Cmdlets.Elements;
 
 /// <summary>
-/// Creates a new <c>output</c> element.
+/// Creates a new <c>textarea</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "HtmlOutputElement"), Alias("output"), OutputType(typeof(string))]
-public class NewOutputElementCommand(): NewElementCommand("output", isVoid: false) {
+[Cmdlet(VerbsCommon.New, "HtmlTextareaElement"), Alias("textarea"), OutputType(typeof(string))]
+public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: false) {
 
 	/// <summary>
-	/// A list of other elements' identifiers, indicating that those elements contributed input values to the calculation.
+	/// Value indicating whether the element should have input focus when the page loads.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string[] For { get; set; } = [];
+	public SwitchParameter AutoFocus { get; set; }
+
+	/// <summary>
+	/// Value indicating whether to prevent the user from interacting with the element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
@@ -19,7 +25,7 @@ public class NewOutputElementCommand(): NewElementCommand("output", isVoid: fals
 	public string Form { get; set; } = "";
 
 	/// <summary>
-	/// The element's name.
+	/// The name of the control.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Name { get; set; } = "";
@@ -30,7 +36,8 @@ public class NewOutputElementCommand(): NewElementCommand("output", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (For.Length > 0) attributes["for"] = string.Join(' ', For);
+		if (AutoFocus) attributes["autofocus"] = true;
+		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 	}
