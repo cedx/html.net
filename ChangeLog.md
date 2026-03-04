@@ -1,8 +1,8 @@
 # Changelog
 
 ## Version [0.9.0](https://github.com/cedx/html.net/compare/v0.8.0...v0.9.0)
-- Added the `New-OlElement`, `New-OptgroupElement` and `New-OptionElement` cmdlets.
-- Added the `ol`, `optgroup` and `option` aliases.
+- Added the `New-OlElement`, `New-OptgroupElement`, `New-OptionElement`, `New-OutputElement` and `New-ProgressElement` cmdlets.
+- Added the `ol`, `optgroup`, `option`, `output` and `progress` aliases.
 
 ## Version [0.8.0](https://github.com/cedx/html.net/compare/v0.7.0...v0.8.0)
 - Added the `New-LabelElement`, `New-LiElement`, `New-MapElement`, `New-MeterElement` and `New-ObjectElement` cmdlets.
