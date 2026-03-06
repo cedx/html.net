@@ -26,7 +26,7 @@ Describe "New-Element" {
 	}
 
 	It 'should support the "dir" attribute' -ForEach auto, ltr, rtl {
-		html -dir $_ | Should -BeExactly "<html dir=`"$_`"></html>"
+		html -dir $_ | Should -BeExactly "<html dir=""$_""></html>"
 	}
 
 	It 'should handle the "id" attribute' {
@@ -34,7 +34,7 @@ Describe "New-Element" {
 	}
 
 	It 'should support the "lang" attribute' -ForEach "fr-FR", "en-US" {
-		html -lang $_ | Should -BeExactly "<html lang=`"$_`"></html>"
+		html -lang $_ | Should -BeExactly "<html lang=""$_""></html>"
 	}
 
 	It 'should handle the "style" attribute' {
@@ -43,7 +43,7 @@ Describe "New-Element" {
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
-		div -tabindex $_ | Should -BeExactly "<div tabindex=`"$_`"></div>"
+		div -tabindex $_ | Should -BeExactly "<div tabindex=""$_""></div>"
 	}
 
 	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {

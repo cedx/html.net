@@ -29,7 +29,7 @@ Describe "New-CustomElement" {
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
-		tag my-element -tabindex $_ | Should -BeExactly "<my-element tabindex=`"$_`"></my-element>"
+		tag my-element -tabindex $_ | Should -BeExactly "<my-element tabindex=""$_""></my-element>"
 	}
 
 	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {

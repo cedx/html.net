@@ -12,6 +12,6 @@ Describe "New-TrackElement" {
 	}
 
 	It 'should support the "kind" attribute' -ForEach captions, chapters, descriptions, metadata, subtitles {
-		track -src Subtitles.vtt -kind $_ | Should -BeIn "<track src=`"Subtitles.vtt`" kind=`"$_`" />", "<track kind=`"$_`" src=`"Subtitles.vtt`" />"
+		track -src Subtitles.vtt -kind $_ | Should -BeIn "<track src=""Subtitles.vtt"" kind=""$_"" />", "<track kind=""$_"" src=""Subtitles.vtt"" />"
 	}
 }

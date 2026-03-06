@@ -16,6 +16,6 @@ Describe "New-ThElement" {
 	}
 
 	It 'should support the "scope" attribute' -ForEach col, colgroup, row, rowgroup {
-		th -scope $_ | Should -BeExactly "<th scope=`"$_`"></th>"
+		th -scope $_ | Should -BeExactly "<th scope=""$_""></th>"
 	}
 }

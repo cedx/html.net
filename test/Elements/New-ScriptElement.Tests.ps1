@@ -11,7 +11,7 @@ Describe "New-ScriptElement" {
 		@{ Src = "Scripts.js"; Type = "module" }
 		@{ Src = "Scripts._hs"; Type = "text/hyperscript" }
 	) {
-		script -src $src -type $type | Should -BeExactly "<script src=`"$src`" type=`"$type`"></script>"
+		script -src $src -type $type | Should -BeExactly "<script src=""$src"" type=""$type""></script>"
 	}
 
 	It 'should support the "async" and "defer" attributes' -ForEach @(
@@ -25,6 +25,6 @@ Describe "New-ScriptElement" {
 		@{ Content = "alert('Hello World!');"; Type = "" }
 		@{ Content = "on click call alert('Hello World!')"; Type = "text/hyperscript" }
 	) {
-		script $content -type $type | Should -BeExactly ($type ? "<script type=`"$type`">$content</script>" : "<script>$content</script>")
+		script $content -type $type | Should -BeExactly ($type ? "<script type=""$type"">$content</script>" : "<script>$content</script>")
 	}
 }

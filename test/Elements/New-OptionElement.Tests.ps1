@@ -16,6 +16,6 @@ Describe "New-OptionElement" {
 		@{ Label = "Option #1"; Value = "" }
 		@{ Label = "Option #2"; Value = "FooBar" }
 	) {
-		option -label $label -value $value | Should -BeIn "<option label=`"$label`" value=`"$value`"></option>", "<option value=`"$value`" label=`"$label`"></option>"
+		option -label $label -value $value | Should -BeIn "<option label=""$label"" value=""$value""></option>", "<option value=""$value"" label=""$label""></option>"
 	}
 }

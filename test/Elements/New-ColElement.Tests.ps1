@@ -8,6 +8,6 @@ Describe "New-ColElement" {
 	}
 
 	It 'should support the "span" attribute' -ForEach 1, 25 {
-		col -span $_ | Should -BeExactly "<col span=`"$_`" />"
+		col -span $_ | Should -BeExactly "<col span=""$_"" />"
 	}
 }

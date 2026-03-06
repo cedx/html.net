@@ -13,8 +13,8 @@ Describe "New-ImgElement" {
 		@{ Src = "Assets/Picture.jpg"; Alt = "A label describing the image." }
 	) {
 		$img = img -src $src -alt $alt
-		if ($null -eq $alt) { $img | Should -BeExactly "<img src=`"$src`" />" }
-		else { $img | Should -BeIn "<img alt=`"$alt`" src=`"$src`" />", "<img src=`"$src`" alt=`"$alt`" />" }
+		if ($null -eq $alt) { $img | Should -BeExactly "<img src=""$src"" />" }
+		else { $img | Should -BeIn "<img alt=""$alt"" src=""$src"" />", "<img src=""$src"" alt=""$alt"" />" }
 	}
 
 	It 'should support the "ismap" and "usemap" attributes' {

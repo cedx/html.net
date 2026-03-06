@@ -26,6 +26,6 @@ New-Item src/Generated -Force -ItemType Directory | Out-Null
 }
 
 $cmdletsToExport.Sort()
-$cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t`"$_`"" }) -join [Environment]::NewLine
+$cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t""$_""" }) -join [Environment]::NewLine
 $content = (Get-Content Html.psd1 -Raw) -replace "CmdletsToExport = @\([^)]+\)", "CmdletsToExport = @(`n$cmdlets`n`t)"
 Set-Content Html.psd1 $content -NoNewline

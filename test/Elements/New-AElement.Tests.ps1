@@ -13,7 +13,7 @@ Describe "New-AElement" {
 	}
 
 	It 'should support the "href" attribute' -ForEach "./Index.html", "mailto:dummy@example.com", "tel:+33123456789" {
-		a "Click me" -href $_ | Should -BeExactly "<a href=`"$_`">Click me</a>"
+		a "Click me" -href $_ | Should -BeExactly "<a href=""$_"">Click me</a>"
 	}
 
 	It 'should support the "ping" attribute' {
@@ -27,6 +27,6 @@ Describe "New-AElement" {
 	}
 
 	It 'should support the "target" attribute' -ForEach "_blank", "my-iframe" {
-		a "Click me" -href Index.html -target $_ | Should -BeExactly "<a href=`"Index.html`" target=`"$_`">Click me</a>"
+		a "Click me" -href Index.html -target $_ | Should -BeExactly "<a href=""Index.html"" target=""$_"">Click me</a>"
 	}
 }

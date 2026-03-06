@@ -19,7 +19,7 @@ Describe "New-VideoElement" {
 	}
 
 	It 'should support the "preload" attribute' -ForEach auto, none, metadata {
-		video -preload $_ | Should -BeExactly "<video preload=`"$_`"></video>"
+		video -preload $_ | Should -BeExactly "<video preload=""$_""></video>"
 	}
 
 	It 'should support the "height" and "width" attributes' {

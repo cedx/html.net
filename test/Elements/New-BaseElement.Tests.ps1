@@ -8,10 +8,10 @@ Describe "New-BaseElement" {
 	}
 
 	It 'should support the "href" attribute' -ForEach "/base/", "https://localhost/base/" {
-		base -href $_ | Should -BeExactly "<base href=`"$_`" />"
+		base -href $_ | Should -BeExactly "<base href=""$_"" />"
 	}
 
 	It 'should support the "target" attribute' -ForEach "_blank", "my-iframe" {
-		base -href /base/ -target $_ | Should -BeExactly "<base href=`"/base/`" target=`"$_`" />"
+		base -href /base/ -target $_ | Should -BeExactly "<base href=""/base/"" target=""$_"" />"
 	}
 }

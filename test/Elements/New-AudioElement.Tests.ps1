@@ -15,6 +15,6 @@ Describe "New-AudioElement" {
 	}
 
 	It 'should support the "preload" attribute' -ForEach auto, none, metadata {
-		audio -preload $_ | Should -BeExactly "<audio preload=`"$_`"></audio>"
+		audio -preload $_ | Should -BeExactly "<audio preload=""$_""></audio>"
 	}
 }

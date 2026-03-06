@@ -12,6 +12,6 @@ Describe "New-OlElement" {
 	}
 
 	It 'should support the "type" attribute' -ForEach 1, A, a, I, i {
-		ol -type $_ | Should -BeExactly "<ol type=`"$_`"></ol>"
+		ol -type $_ | Should -BeExactly "<ol type=""$_""></ol>"
 	}
 }

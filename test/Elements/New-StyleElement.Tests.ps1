@@ -8,7 +8,7 @@ Describe "New-StyleElement" {
 	}
 
 	It 'should support the "media" attribute' -ForEach "all", "(width <= 500px)" {
-		style -media $_ | Should -BeExactly "<style media=`"$_`"></style>"
+		style -media $_ | Should -BeExactly "<style media=""$_""></style>"
 	}
 
 	It "should allow inner content" {

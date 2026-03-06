@@ -8,7 +8,7 @@ Describe "New-DialogElement" {
 	}
 
 	It 'should support the "closedby" attribute' -ForEach any, closerequest, none {
-		dialog -closedby $_ | Should -BeExactly "<dialog closedby=`"$_`"></dialog>"
+		dialog -closedby $_ | Should -BeExactly "<dialog closedby=""$_""></dialog>"
 	}
 
 	It 'should support the "open" attribute' {
