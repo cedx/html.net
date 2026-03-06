@@ -1,7 +1,7 @@
 header {
 	nav -class navbar, navbar-expand-xl {
 		div -class container-fluid {
-			button -class navbar-toggler -dataset @{ bsTarget = "#menu"; bsToggle = "offcanvas" } {
+			button -class navbar-toggler -dataset @{ BsTarget = "#menu"; BsToggle = "offcanvas" } {
 				span -class navbar-toggler-icon
 			}
 

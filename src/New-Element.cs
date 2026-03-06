@@ -67,6 +67,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public string? Id { get; set; }
 
 	/// <summary>
+	/// A hint at the type of data that might be entered by the user while editing the element or its contents.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("decimal", "email", "none", "numeric", "search", "tel", "text", "url")]
+	public string? InputMode { get; set; }
+
+	/// <summary>
 	/// The element's language.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,6 +154,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
 		foreach (DictionaryEntry entry in DataSet) attributes[$"data-{kebabCase(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
+		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);

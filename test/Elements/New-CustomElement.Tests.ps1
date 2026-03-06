@@ -43,7 +43,7 @@ Describe "New-CustomElement" {
 
 	It "should handle data attributes" {
 		$expected = '<my-element data-bs-toggle="tooltip" data-push-url></my-element>', '<my-element data-push-url data-bs-toggle="tooltip"></my-element>'
-		tag my-element -dataset @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
+		tag my-element -dataset @{ BsToggle = "tooltip"; PushUrl = $true } | Should -BeIn $expected
 	}
 
 	It "should handle event handler attributes" {
