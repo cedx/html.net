@@ -1,8 +1,8 @@
 # Changelog
 
 ## Version [0.10.0](https://github.com/cedx/html.net/compare/v0.9.0...v0.10.0)
-- Added the `New-ButtonElement`, `New-QElement`, `New-SlotElement` and `New-SourceElement` cmdlets.
-- Added the `button`, `q`, `slot` and `source` aliases.
+- Added the `New-ButtonElement`, `New-QElement`, `New-SelectElement`, `New-SlotElement` and `New-SourceElement` cmdlets.
+- Added the `button`, `q`, `selectTag`, `slot` and `source` aliases.
 - The common parameter `-Style` is now an `OrderedHashtable`, allowing the declaration order to be preserved.
 
 ## Version [0.9.0](https://github.com/cedx/html.net/compare/v0.8.0...v0.9.0)

@@ -16,7 +16,11 @@ Describe "New-ButtonElement" {
 		button -disabled | Should -BeExactly '<button disabled></button>'
 	}
 
-	It 'should support the "disabled" attribute' -ForEach button, reset, submit {
+	It 'should support the "formnovalidate" attribute' {
+		button -formnovalidate | Should -BeExactly '<button formnovalidate></button>'
+	}
+
+	It 'should support the "type" attribute' -ForEach button, reset, submit {
 		button -type $_ | Should -BeExactly "<button type=""$_""></button>"
 	}
 }
