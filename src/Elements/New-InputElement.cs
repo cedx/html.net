@@ -7,10 +7,18 @@ namespace Belin.Html.Cmdlets.Elements;
 public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) {
 
 	/// <summary>
-	/// Value indicating whether the element should have input focus when the page loads.
+	/// Defines which file types are selectable in a file upload control.
+	/// Valid for the <c>file</c> input type only.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public SwitchParameter AutoFocus { get; set; }
+	public string Accept { get; set; } = "";
+
+	/// <summary>
+	/// A text to display on browsers that do not display images.
+	/// Valid for the <c>image</c> input type only.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string? Alt { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
@@ -54,7 +62,8 @@ public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) 
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoFocus) attributes["autofocus"] = true;
+		if (!string.IsNullOrWhiteSpace(Accept)) attributes["accept"] = Accept;
+		if (Alt is not null) attributes["alt"] = Alt;
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
