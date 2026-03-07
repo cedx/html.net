@@ -87,12 +87,6 @@ public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: 
 	public int Rows { get; set; }
 
 	/// <summary>
-	/// Value indicating whether the element is subject to spell-checking by the underlying browser/OS.
-	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("default", "false", "true")]
-	public string? SpellCheck { get; set; }
-
-	/// <summary>
 	/// Value indicating whether the control should wrap the value for form submission.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("hard", "soft")]
@@ -117,7 +111,6 @@ public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: 
 		if (ReadOnly) attributes["readonly"] = true;
 		if (Required) attributes["required"] = true;
 		if (Rows > 0) attributes["rows"] = Rows.ToString(CultureInfo.InvariantCulture);
-		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
 		if (Wrap is not null) attributes["wrap"] = Wrap;
 	}
 }

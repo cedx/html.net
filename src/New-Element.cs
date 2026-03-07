@@ -49,6 +49,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public virtual object? Content { get; set; }
 
 	/// <summary>
+	/// Value indicating whether the element is editable by the user.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "plaintext-only", "true")]
+	public string? ContentEditable { get; set; }
+
+	/// <summary>
 	/// The data attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,6 +65,18 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "ltr", "rtl")]
 	public string? Dir { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the element can be dragged.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "true")]
+	public string? Draggable { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the browser should not render the contents of the element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Hidden { get; set; }
 
 	/// <summary>
 	/// The element identifier.
@@ -85,6 +103,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public Hashtable On { get; set; } = [];
 
 	/// <summary>
+	/// Value indicating whether the element is subject to spell-checking by the underlying browser/OS.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "true")]
+	public string? SpellCheck { get; set; }
+
+	/// <summary>
 	/// The CSS styling declarations applied to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,6 +125,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string? Title { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the element's text should be translated when the page is localized.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("no", "yes")]
+	public string? Translate { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element to create is a void element.
@@ -152,13 +182,18 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (AutoCapitalize is not null) attributes["autocapitalize"] = AutoCapitalize;
 		if (AutoFocus) attributes["autofocus"] = true;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
+		if (ContentEditable is not null) attributes["contenteditable"] = ContentEditable;
 		foreach (DictionaryEntry entry in DataSet) attributes[$"data-{kebabCase(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
+		if (Draggable is not null) attributes["draggable"] = Draggable;
+		if (Hidden) attributes["hidden"] = true;
 		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
+		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
+		if (Translate is not null) attributes["translate"] = Translate;
 
 		if (Style.Count > 0) attributes["style"] = string.Join("; ", Style.Cast<DictionaryEntry>()
 			.Select(entry => $"{kebabCase(entry.Key.ToString() ?? "")}: {Convert.ToString(entry.Value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote)}"));

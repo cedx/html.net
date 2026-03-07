@@ -35,14 +35,14 @@ Describe "New-TextareaElement" {
 	}
 
 	It 'should support the "readonly" attribute' {
-		textarea -readonly| Should -BeExactly '<textarea readonly></textarea>'
+		textarea -readonly | Should -BeExactly '<textarea readonly></textarea>'
 	}
 
 	It 'should support the "required" attribute' {
 		textarea -required | Should -BeExactly '<textarea required></textarea>'
 	}
 
-	It 'should support the "spellcheck" attribute' -ForEach default, false, true {
+	It 'should support the "spellcheck" attribute' -ForEach false, true {
 		textarea -spellcheck $_ | Should -BeExactly "<textarea spellcheck=""$_""></textarea>"
 	}
 }
