@@ -32,7 +32,7 @@ public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
 				};
 			}
 			catch (NotSupportedException e) {
-				ThrowTerminatingError(new ErrorRecord(e, "New-TimeElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
+				ThrowTerminatingError(new ErrorRecord(e, "New-TimeElement:NotSupportedException", ErrorCategory.InvalidArgument, DateTime));
 			}
 		}
 	}

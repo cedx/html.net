@@ -35,7 +35,7 @@ public class NewDelElementCommand(): NewElementCommand("del", isVoid: false) {
 				};
 			}
 			catch (NotSupportedException e) {
-				ThrowTerminatingError(new ErrorRecord(e, "New-DelElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
+				ThrowTerminatingError(new ErrorRecord(e, "New-DelElement:NotSupportedException", ErrorCategory.InvalidArgument, DateTime));
 			}
 		}
 	}

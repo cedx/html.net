@@ -35,7 +35,7 @@ public class NewInsElementCommand(): NewElementCommand("ins", isVoid: false) {
 				};
 			}
 			catch (NotSupportedException e) {
-				ThrowTerminatingError(new ErrorRecord(e, "New-InsElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
+				ThrowTerminatingError(new ErrorRecord(e, "New-InsElement:NotSupportedException", ErrorCategory.InvalidArgument, DateTime));
 			}
 		}
 	}
