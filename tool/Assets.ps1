@@ -8,12 +8,12 @@ $cmdletsToExport = [List[string]]::new([string[]] @(
 ))
 
 New-Item src/Generated -Force -ItemType Directory | Out-Null
-(Import-PowerShellDataFile share/HtmlElements.psd1).Elements | ForEach-Object {
+foreach ($element in (Import-PowerShellDataFile share/HtmlElements.psd1).Elements) {
 	$parameters = @{
-		Alias = (Get-Alias $_.Tag -ErrorAction Ignore) ? "$($_.Tag)Tag" : $_.Tag
-		CapitalizedTag = [char]::ToUpperInvariant($_.Tag[0]) + $_.Tag.Substring(1)
-		IsVoid = $_.IsVoid.ToString().ToLowerInvariant()
-		Tag = $_.Tag
+		Alias = (Get-Alias $element.Tag -ErrorAction Ignore) ? "$($element.Tag)Tag" : $element.Tag
+		CapitalizedTag = [char]::ToUpperInvariant($element.Tag[0]) + $element.Tag.Substring(1)
+		IsVoid = $element.IsVoid.ToString().ToLowerInvariant()
+		Tag = $element.Tag
 	}
 
 	$cmdletsToExport.Add("New-Html$($parameters.CapitalizedTag)Element")
@@ -21,11 +21,11 @@ New-Item src/Generated -Force -ItemType Directory | Out-Null
 	if (Test-Path "src/Elements/$fileName.cs") { return }
 
 	$content = $cmdletTemplate
-	$parameters.Keys | ForEach-Object { $content = $content -replace "{$_}", $parameters.$_ }
+	foreach ($key in $parameters.Keys) { $content = $content -replace "{$key}", $parameters.$key }
 	Set-Content "src/Generated/$fileName.g.cs" $content -NoNewline
 }
 
 $cmdletsToExport.Sort()
-$cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t""$_""" }) -join [Environment]::NewLine
+$cmdlets = $cmdletsToExport.PSForEach{ "`t`t""$_""" } -join [Environment]::NewLine
 $content = (Get-Content Html.psd1 -Raw) -replace "CmdletsToExport = @\([^)]+\)", "CmdletsToExport = @(`n$cmdlets`n`t)"
 Set-Content Html.psd1 $content -NoNewline
