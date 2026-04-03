@@ -15,7 +15,7 @@ pwsh --version
 From a command prompt, run:
 
 ```powershell
-Install-PSResource Belin.Html
+Install-PSResource Belin.Html -Repository PSGallery
 ```
 
 ### 2. Import it
