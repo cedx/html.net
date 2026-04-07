@@ -8,16 +8,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Authors>CedX</Authors>
-		<IncludeSymbols>true</IncludeSymbols>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
-		<PackageTags>html;renderer;template;templating;web</PackageTags>
-		<RepositoryUrl>https://github.com/cedx/html.net.git</RepositoryUrl>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
-
-	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Html</AssemblyName>
 		<HotReloadAutoRestart>true</HotReloadAutoRestart>
@@ -29,7 +19,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
 		<PackageReference Include="System.Management.Automation" Version="7.6.*" />
 	</ItemGroup>
 
