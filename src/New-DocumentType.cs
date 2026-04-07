@@ -1,4 +1,4 @@
-namespace Belin.Html.Cmdlets;
+namespace Belin.Html;
 
 /// <summary>
 /// Creates a new document type declaration.

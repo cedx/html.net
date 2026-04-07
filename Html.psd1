@@ -1,7 +1,7 @@
 @{
 	ModuleVersion = "1.0.1"
 	PowerShellVersion = "7.6"
-	RootModule = "bin/Belin.Html.Cmdlets.dll"
+	RootModule = "bin/Belin.Html.dll"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"

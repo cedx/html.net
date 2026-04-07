@@ -19,7 +19,7 @@ Describe "New-MetaElement" {
 	}
 
 	It 'should support the "name" and "content" attributes' -ForEach @(
-		@{ Name = "application-name"; Content = "Belin.Html.Cmdlets" }
+		@{ Name = "application-name"; Content = "Belin.Html" }
 		@{ Name = "color-scheme"; Content = "light dark" }
 	) {
 		meta -name $name -content $content | Should -BeExactly "<meta name=""$name"" content=""$content"">"

@@ -1,4 +1,4 @@
-namespace Belin.Html.Cmdlets;
+namespace Belin.Html;
 
 using System.Collections;
 using System.Globalization;
