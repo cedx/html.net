@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
-		<Description>A set of PowerShell cmdlets for rendering HTML documents.</Description>
+		<Description>PowerShell cmdlets for rendering HTML documents.</Description>
 		<Product>HtmlForPS</Product>
 		<Version>1.0.1</Version>
 	</PropertyGroup>

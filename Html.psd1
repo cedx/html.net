@@ -6,7 +6,7 @@
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
 	Copyright = "© Cédric Belin"
-	Description = "A set of PowerShell cmdlets for rendering HTML documents."
+	Description = "PowerShell cmdlets for rendering HTML documents."
 	GUID = "3c16800c-921e-4c31-9fc3-00052d2f30ba"
 
 	AliasesToExport = @()
