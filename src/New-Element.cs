@@ -166,7 +166,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 			}
 		}
 
-		if (IsVoid) builder.Append(">");
+		if (IsVoid) builder.Append('>');
 		else {
 			var output = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is not null ? [Content] : []);
 			builder.Append('>');
