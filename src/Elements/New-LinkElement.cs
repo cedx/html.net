@@ -60,13 +60,13 @@ public class NewLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["rel"] = string.Join(' ', Rel);
+		attributes["rel"] = string.Join(' ', Rel).Trim();
 		attributes["href"] = Href.ToString();
 		if (!string.IsNullOrWhiteSpace(As)) attributes["as"] = As;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
 		if (!string.IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
-		if (Sizes.Length > 0) attributes["sizes"] = string.Join(' ', Sizes);
+		if (Sizes.Length > 0) attributes["sizes"] = string.Join(' ', Sizes).Trim();
 		if (!string.IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
 	}
 }

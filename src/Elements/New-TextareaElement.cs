@@ -98,7 +98,7 @@ public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: 
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete);
+		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (AutoCorrect is not null) attributes["autocorrect"] = AutoCorrect;
 		if (Cols > 0) attributes["cols"] = Cols.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;

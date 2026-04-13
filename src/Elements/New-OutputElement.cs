@@ -30,7 +30,7 @@ public class NewOutputElementCommand(): NewElementCommand("output", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (For.Length > 0) attributes["for"] = string.Join(' ', For);
+		if (For.Length > 0) attributes["for"] = string.Join(' ', For).Trim();
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 	}

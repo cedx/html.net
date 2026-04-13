@@ -56,7 +56,7 @@ public class NewSelectElementCommand(): NewElementCommand("select", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete);
+		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (Multiple) attributes["multiple"] = true;

@@ -44,8 +44,8 @@ public class NewAElementCommand(): NewElementCommand("a", isVoid: false) {
 		base.RenderAttributes(attributes);
 		attributes["href"] = Href.ToString();
 		if (!string.IsNullOrWhiteSpace(Download)) attributes["download"] = Download;
-		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping.Select(url => url.ToString()));
-		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel);
+		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping.Select(url => url.ToString())).Trim();
+		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
 		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}
 }

@@ -71,7 +71,7 @@ public class NewIframeElementCommand(): NewElementCommand("iframe", isVoid: fals
 		if (Loading is not null) attributes["loading"] = Loading;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (ReferrerPolicy is not null) attributes["referrerpolicy"] = ReferrerPolicy;
-		if (Sandbox.Length > 0) attributes["sandbox"] = string.Join(' ', Sandbox);
+		if (Sandbox.Length > 0) attributes["sandbox"] = string.Join(' ', Sandbox).Trim();
 		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
 	}
 }

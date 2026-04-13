@@ -231,7 +231,7 @@ public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) 
 		base.RenderAttributes(attributes);
 		if (!string.IsNullOrWhiteSpace(Accept)) attributes["accept"] = Accept;
 		if (Alt is not null) attributes["alt"] = Alt;
-		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete);
+		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (Capture is not null) attributes["capture"] = Capture;
 		if (Checked) attributes["checked"] = true;
 		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;

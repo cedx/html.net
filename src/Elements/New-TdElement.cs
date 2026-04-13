@@ -33,7 +33,7 @@ public class NewTdElementCommand(): NewElementCommand("td", isVoid: false) {
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);
-		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers);
+		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
 		if (RowSpan >= 0) attributes["rowspan"] = RowSpan.ToString(CultureInfo.InvariantCulture);
 	}
 }

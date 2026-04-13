@@ -46,7 +46,7 @@ public class NewThElementCommand(): NewElementCommand("th", isVoid: false) {
 		base.RenderAttributes(attributes);
 		if (!string.IsNullOrWhiteSpace(Abbr)) attributes["abbr"] = Abbr;
 		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);
-		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers);
+		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
 		if (RowSpan >= 0) attributes["rowspan"] = RowSpan.ToString(CultureInfo.InvariantCulture);
 		if (Scope is not null) attributes["scope"] = Scope;
 	}
