@@ -25,6 +25,6 @@ public class NewDetailsElementCommand(): NewElementCommand("details", isVoid: fa
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		attributes["open"] = Open.IsPresent;
+		if (Open) attributes["open"] = true;
 	}
 }

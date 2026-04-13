@@ -45,7 +45,7 @@ public class NewTrackElementCommand(): NewElementCommand("track", isVoid: true) 
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
-		attributes["default"] = Default.IsPresent;
+		if (Default) attributes["default"] = true;
 		if (Kind is not null) attributes["kind"] = Kind;
 		if (!string.IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
 		if (SrcLang is not null) attributes["srclang"] = SrcLang.Name;

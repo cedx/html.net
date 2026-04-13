@@ -25,6 +25,6 @@ public class NewOptgroupElementCommand(): NewElementCommand("optgroup", isVoid: 
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["label"] = Label;
-		attributes["disabled"] = Disabled.IsPresent;
+		if (Disabled) attributes["disabled"] = true;
 	}
 }

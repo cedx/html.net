@@ -37,8 +37,8 @@ public class NewTemplateElementCommand(): NewElementCommand("template", isVoid: 
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (ShadowRootMode is not null) attributes["shadowrootmode"] = ShadowRootMode;
-		attributes["shadowrootclonable"] = ShadowRootClonable.IsPresent;
-		attributes["shadowrootdelegatesfocus"] = ShadowRootDelegatesFocus.IsPresent;
-		attributes["shadowrootserializable"] = ShadowRootSerializable.IsPresent;
+		if (ShadowRootClonable) attributes["shadowrootclonable"] = true;
+		if (ShadowRootDelegatesFocus) attributes["shadowrootdelegatesfocus"] = true;
+		if (ShadowRootSerializable) attributes["shadowrootserializable"] = true;
 	}
 }

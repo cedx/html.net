@@ -67,7 +67,7 @@ public class NewFormElementCommand(): NewElementCommand("form", isVoid: false) {
 		if (Enctype is not null) attributes["enctype"] = Enctype;
 		if (Method is not null) attributes["method"] = Method;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		attributes["novalidate"] = NoValidate.IsPresent;
+		if (NoValidate) attributes["novalidate"] = true;
 		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel);
 		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}

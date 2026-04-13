@@ -25,6 +25,6 @@ public class NewDialogElementCommand(): NewElementCommand("dialog", isVoid: fals
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (ClosedBy is not null) attributes["closedby"] = ClosedBy;
-		attributes["open"] = Open.IsPresent;
+		if (Open) attributes["open"] = true;
 	}
 }

@@ -49,9 +49,9 @@ public class NewScriptElementCommand(): NewElementCommand("script", isVoid: fals
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Src is not null) attributes["src"] = Src.ToString();
-		attributes["async"] = Async.IsPresent;
+		if (Async) attributes["async"] = true;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		attributes["defer"] = Defer.IsPresent;
+		if (Defer) attributes["defer"] = true;
 		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
 		if (!string.IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
 	}

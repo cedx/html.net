@@ -71,7 +71,7 @@ public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 		attributes["src"] = Src.ToString();
 		if (Alt is not null) attributes["alt"] = Alt;
 		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		attributes["ismap"] = IsMap.IsPresent;
+		if (IsMap) attributes["ismap"] = true;
 		if (Loading is not null) attributes["loading"] = Loading;
 		if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
 		if (SrcSet.Length > 0) attributes["srcset"] = string.Join(", ", SrcSet);

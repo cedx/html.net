@@ -100,12 +100,12 @@ public class NewButtonElementCommand(): NewElementCommand("button", isVoid: fals
 		base.RenderAttributes(attributes);
 		if (!string.IsNullOrWhiteSpace(Command)) attributes["command"] = Command;
 		if (!string.IsNullOrWhiteSpace(CommandFor)) attributes["commandfor"] = CommandFor;
-		attributes["disabled"] = Disabled.IsPresent;
+		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
 		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
 		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
-		attributes["formnovalidate"] = FormNoValidate.IsPresent;
+		if (FormNoValidate) attributes["formnovalidate"] = true;
 		if (!string.IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (!string.IsNullOrWhiteSpace(PopoverTarget)) attributes["popovertarget"] = PopoverTarget;

@@ -102,14 +102,14 @@ public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: 
 		if (AutoCorrect is not null) attributes["autocorrect"] = AutoCorrect;
 		if (Cols > 0) attributes["cols"] = Cols.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
-		attributes["disabled"] = Disabled.IsPresent;
+		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (MaxLength >= 0) attributes["maxlength"] = MaxLength.ToString(CultureInfo.InvariantCulture);
 		if (MinLength >= 0) attributes["minlength"] = MinLength.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (!string.IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
-		attributes["readonly"] = ReadOnly.IsPresent;
-		attributes["required"] = Required.IsPresent;
+		if (ReadOnly) attributes["readonly"] = true;
+		if (Required) attributes["required"] = true;
 		if (Rows > 0) attributes["rows"] = Rows.ToString(CultureInfo.InvariantCulture);
 		if (Wrap is not null) attributes["wrap"] = Wrap;
 	}

@@ -36,9 +36,9 @@ public class NewOptionElementCommand(): NewElementCommand("option", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["disabled"] = Disabled.IsPresent;
+		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
-		attributes["selected"] = Selected.IsPresent;
+		if (Selected) attributes["selected"] = true;
 		if (Value is not null) attributes["value"] = Value;
 	}
 }

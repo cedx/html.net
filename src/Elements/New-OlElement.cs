@@ -32,7 +32,7 @@ public class NewOlElementCommand(): NewElementCommand("ol", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["reversed"] = Reversed.IsPresent;
+		if (Reversed) attributes["reversed"] = true;
 		if (Start is not null) attributes["start"] = Start.Value.ToString(CultureInfo.InvariantCulture);
 		if (Type is not null) attributes["type"] = Type;
 	}
