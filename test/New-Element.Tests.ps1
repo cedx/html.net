@@ -66,6 +66,10 @@ Describe "New-Element" {
 		button -on @{ Click = "submit(event)"; ContextMenu = "showMenu()" } | Should -BeIn $expected
 	}
 
+	It "should handle switch parameters in attribute values" {
+		input -attributes @{ disabled = [switch] $false; required = [switch] $true } | Should -BeExactly "<input required>"
+	}
+
 	It "should handle the inner content" {
 		$expected = "<main><div>Foo &gt; Bar <span>Baz &lt; Qux</span></div></main>"
 		main { div { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected

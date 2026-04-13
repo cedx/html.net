@@ -156,9 +156,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		RenderAttributes(attributes);
 
 		var builder = new StringBuilder($"<{TagName}");
-		foreach (var (key, value) in attributes) if (value is not null) {
+		foreach (var (key, value) in attributes.Where(attribute => attribute.Value is not null)) {
 			if (value is bool booleanValue) {
 				if (booleanValue) builder.Append($" {key}");
+			}
+			else if (value is SwitchParameter switchParameter) {
+				if (switchParameter.IsPresent) builder.Append($" {key}");
 			}
 			else {
 				var stringValue = Convert.ToString(value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote);
