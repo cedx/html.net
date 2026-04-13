@@ -4,7 +4,7 @@
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>PowerShell cmdlets for rendering HTML documents.</Description>
 		<Product>HtmlForPS</Product>
-		<Version>1.0.1</Version>
+		<Version>1.1.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
