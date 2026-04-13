@@ -57,11 +57,11 @@ public class NewSelectElementCommand(): NewElementCommand("select", isVoid: fals
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete);
-		if (Disabled) attributes["disabled"] = true;
+		attributes["disabled"] = Disabled.IsPresent;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (Multiple) attributes["multiple"] = true;
+		attributes["multiple"] = Multiple.IsPresent;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Required) attributes["required"] = true;
+		attributes["required"] = Required.IsPresent;
 		if (Size >= 0) attributes["size"] = Size.ToString(CultureInfo.InvariantCulture);
 	}
 }

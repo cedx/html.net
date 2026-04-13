@@ -60,12 +60,12 @@ public class NewAudioElementCommand(): NewElementCommand("audio", isVoid: false)
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoPlay) attributes["autoplay"] = true;
-		if (Controls) attributes["controls"] = true;
+		attributes["autoplay"] = AutoPlay.IsPresent;
+		attributes["controls"] = Controls.IsPresent;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
-		if (Loop) attributes["loop"] = true;
-		if (Muted) attributes["muted"] = true;
+		attributes["disableremoteplayback"] = DisableRemotePlayback.IsPresent;
+		attributes["loop"] = Loop.IsPresent;
+		attributes["muted"] = Muted.IsPresent;
 		if (Preload is not null) attributes["preload"] = Preload;
 		if (Src is not null) attributes["src"] = Src.ToString();
 	}

@@ -186,13 +186,13 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (AutoCapitalize is not null) attributes["autocapitalize"] = AutoCapitalize;
-		if (AutoFocus) attributes["autofocus"] = true;
+		attributes["autofocus"] = AutoFocus.IsPresent;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class).Trim();
 		if (ContentEditable is not null) attributes["contenteditable"] = ContentEditable;
 		foreach (DictionaryEntry entry in DataSet) attributes[$"data-{kebabCase(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Draggable is not null) attributes["draggable"] = Draggable;
-		if (Hidden) attributes["hidden"] = true;
+		attributes["hidden"] = Hidden.IsPresent;
 		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;

@@ -92,15 +92,15 @@ public class NewVideoElementCommand(): NewElementCommand("video", isVoid: false)
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoPlay) attributes["autoplay"] = true;
-		if (Controls) attributes["controls"] = true;
+		attributes["autoplay"] = AutoPlay.IsPresent;
+		attributes["controls"] = Controls.IsPresent;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (DisablePictureInPicture) attributes["disablepictureinpicture"] = true;
-		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
+		attributes["disablepictureinpicture"] = DisablePictureInPicture.IsPresent;
+		attributes["disableremoteplayback"] = DisableRemotePlayback.IsPresent;
 		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		if (Loop) attributes["loop"] = true;
-		if (Muted) attributes["muted"] = true;
-		if (PlaysInline) attributes["playsinline"] = true;
+		attributes["loop"] = Loop.IsPresent;
+		attributes["muted"] = Muted.IsPresent;
+		attributes["playsinline"] = PlaysInline.IsPresent;
 		if (Poster is not null) attributes["poster"] = Poster.ToString();
 		if (Preload is not null) attributes["preload"] = Preload;
 		if (Src is not null) attributes["src"] = Src.ToString();
