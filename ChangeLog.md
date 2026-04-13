@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [1.1.0](https://github.com/cedx/html.net/compare/v1.0.1...v1.1.0)
+- Added support for `[switch]` parameters in attribute values.
+- The `New-DelElement`, `New-InsElement` and `New-TimeElement` cmdlets now use a non-terminating error.
+
 ## Version [1.0.1](https://github.com/cedx/html.net/compare/v1.0.0...v1.0.1)
 - Fixed a packaging issue: the generated cmdlets were not included in the release.
 
