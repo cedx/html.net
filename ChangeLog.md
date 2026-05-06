@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.1.1](https://github.com/cedx/html.ps1/compare/v2.1.0...v2.1.1)
+- Fixed a packaging issue: the advanced functions were not included in the release.
+
 ## Version [2.1.0](https://github.com/cedx/html.ps1/compare/v2.0.0...v2.1.0)
 - Merged the nested [PowerShell](https://learn.microsoft.com/en-us/powershell) modules into a single main module.
 
