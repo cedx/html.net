@@ -51,7 +51,7 @@ function Publish-PSGalleryModule {
 	New-Item $output/bin, $output/src -ItemType Directory | Out-Null
 	Copy-Item $root/Html.psd1 $output/Belin.Html.psd1
 	Copy-Item $root/*.md $output
-	Copy-Item $root/src/*.psm1 $output/src -Recurse
+	Copy-Item $root/src/*.ps*1 $output/src
 	Copy-Item $module.RootModule $output/bin
 
 	$output = "$root/var/PSGallery"
