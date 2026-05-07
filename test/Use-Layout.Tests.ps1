@@ -1,12 +1,10 @@
+using module ../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `Use-Layout` cmdlet.
 #>
 Describe "Use-Layout" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../Html.psd1"
-	}
-
 	It "should render the specified HTML content inside the given layout" {
 		$data = @{ AppName = "My Application"; Title = "The headline"; Year = 2025 }
 		$html = layout "$PSScriptRoot/../res/Layout.ps1" (& "$PSScriptRoot/../res/Content.ps1" $data) -Data $data

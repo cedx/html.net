@@ -2,7 +2,7 @@
 .SYNOPSIS
 	Renders an HTML document from the given PowerShell script.
 #>
-Import-Module Belin.Html
+using module Belin.Html
 
 $title = "My Application"
 $content = & "$PSScriptRoot/../res/Content.ps1" @{ Heading = $title } | Out-String

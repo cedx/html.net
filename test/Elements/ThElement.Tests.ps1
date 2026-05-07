@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-ThElement` cmdlet.
 #>
 Describe "New-ThElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "colspan" and "rowspan" attributes' {
 		th -ColSpan 1 -RowSpan 3 | Should -BeIn '<th colspan="1" rowspan="3"></th>', '<th rowspan="3" colspan="1"></th>'
 	}

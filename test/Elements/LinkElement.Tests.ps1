@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-LinkElement` cmdlet.
 #>
 Describe "New-LinkElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "href" and "rel" attributes' {
 		link -Rel icon -Href /Favicon.ico | Should -BeExactly '<link rel="icon" href="/Favicon.ico">'
 		link -Rel stylesheet -Href /Assets/Styles.css | Should -BeExactly '<link rel="stylesheet" href="/Assets/Styles.css">'

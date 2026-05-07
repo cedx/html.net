@@ -1,12 +1,10 @@
+using module ../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-CustomElement` cmdlet.
 #>
 Describe "New-CustomElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../Html.psd1"
-	}
-
 	It "should create a custom HTML element from the specified tag name" {
 		tag my-element | Should -BeExactly "<my-element></my-element>"
 	}

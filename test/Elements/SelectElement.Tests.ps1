@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-SelectElement` cmdlet.
 #>
 Describe "New-SelectElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "autocomplete" attribute' -ForEach "off", "on", @("shipping", "street-address") {
 		selectTag -AutoComplete $_ | Should -BeExactly "<select autocomplete=""$($_ -join " ")""></select>"
 	}

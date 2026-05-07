@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-InsElement` cmdlet.
 #>
 Describe "New-InsElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "cite" attribute' {
 		ins "Lorem Ipsum" -Cite "https://example.com/" | Should -BeExactly '<ins cite="https://example.com/">Lorem Ipsum</ins>'
 	}

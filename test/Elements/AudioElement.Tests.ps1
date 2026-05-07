@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-AudioElement` cmdlet.
 #>
 Describe "New-AudioElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "autoplay", "controls", "loop" and "muted" attributes' {
 		audio -AutoPlay | Should -BeExactly "<audio autoplay></audio>"
 		audio -Controls | Should -BeExactly "<audio controls></audio>"

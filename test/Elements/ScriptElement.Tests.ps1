@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-ScriptElement` cmdlet.
 #>
 Describe "New-ScriptElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "src" and "type" attributes' -ForEach @(
 		@{ Src = "Scripts.js"; Type = "module" }
 		@{ Src = "Scripts._hs"; Type = "text/hyperscript" }

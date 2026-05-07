@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-TextareaElement` cmdlet.
 #>
 Describe "New-TextareaElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "autocomplete" attribute' -ForEach "off", "on", @("shipping", "street-address") {
 		textarea -AutoComplete $_ | Should -BeExactly "<textarea autocomplete=""$($_ -join " ")""></textarea>"
 	}

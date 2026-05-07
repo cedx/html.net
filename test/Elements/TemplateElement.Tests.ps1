@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-TemplateElement` cmdlet.
 #>
 Describe "New-TemplateElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "shadowrootclonable" attribute' {
 		template -ShadowRootClonable | Should -BeExactly '<template shadowrootclonable></template>'
 	}

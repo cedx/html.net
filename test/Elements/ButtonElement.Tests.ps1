@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-ButtonElement` cmdlet.
 #>
 Describe "New-ButtonElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "command" and "commandfor" attributes' {
 		$expected = '<button command="show-modal" commandfor="DialogBox"></button>', '<button commandfor="DialogBox" command="show-modal"></button>'
 		button -Command show-modal -CommandFor DialogBox | Should -BeIn $expected

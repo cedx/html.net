@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-FormElement` cmdlet.
 #>
 Describe "New-FormElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "action" attribute' {
 		form -Action "/Process.php" | Should -BeExactly '<form action="/Process.php"></form>'
 	}

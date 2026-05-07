@@ -1,12 +1,10 @@
+using module ../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `Write-Element` cmdlet.
 #>
 Describe "Write-Element" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../Html.psd1"
-	}
-
 	It "should create an HTML element from the specified tag name" -ForEach @(
 		@{ Tag = "b"; Expected = "<b></b>" }
 		@{ Tag = "html"; Expected = "<html></html>" }

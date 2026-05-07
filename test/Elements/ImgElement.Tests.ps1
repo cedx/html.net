@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-ImgElement` cmdlet.
 #>
 Describe "New-ImgElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "alt" and "src" attributes' -ForEach @(
 		@{ Src = "Image.webp"; Alt = $null }
 		@{ Src = "Assets/Icon.gif"; Alt = "" }

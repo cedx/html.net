@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-FieldsetElement` cmdlet.
 #>
 Describe "New-FieldsetElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "disabled" attribute' {
 		fieldset -Disabled | Should -BeExactly "<fieldset disabled></fieldset>"
 	}

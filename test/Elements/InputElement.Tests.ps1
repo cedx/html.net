@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-InputElement` cmdlet.
 #>
 Describe "New-InputElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "accept" attribute' {
 		input -Accept "image/*" | Should -BeExactly '<input accept="image/*">'
 	}

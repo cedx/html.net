@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-DelElement` cmdlet.
 #>
 Describe "New-DelElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "cite" attribute' {
 		delTag "Lorem Ipsum" -Cite "https://example.com/" | Should -BeExactly '<del cite="https://example.com/">Lorem Ipsum</del>'
 	}

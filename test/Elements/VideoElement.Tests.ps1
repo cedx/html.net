@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-VideoElement` cmdlet.
 #>
 Describe "New-VideoElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "autoplay", "controls", "loop" and "muted" attributes' {
 		video -AutoPlay | Should -BeExactly "<video autoplay></video>"
 		video -Controls | Should -BeExactly "<video controls></video>"

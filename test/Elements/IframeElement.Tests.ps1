@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-IframeElement` cmdlet.
 #>
 Describe "New-IframeElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "height" and "width" attributes' {
 		iframe -Src Index.php -Height 200 | Should -BeIn '<iframe height="200" src="Index.php"></iframe>', '<iframe src="Index.php" height="200"></iframe>'
 		iframe -Src Index.php -Width 460 | Should -BeIn '<iframe width="460" src="Index.php"></iframe>', '<iframe src="Index.php" width="460"></iframe>'

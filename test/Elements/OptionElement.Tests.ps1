@@ -1,12 +1,10 @@
+using module ../../Html.psd1
+
 <#
 .SYNOPSIS
 	Tests the features of the `New-OptionElement` cmdlet.
 #>
 Describe "New-OptionElement" {
-	BeforeAll {
-		Import-Module "$PSScriptRoot/../../Html.psd1"
-	}
-
 	It 'should support the "disabled" and "selected" attributes' {
 		option -Disabled | Should -BeExactly "<option disabled></option>"
 		option -selected | Should -BeExactly "<option selected></option>"
