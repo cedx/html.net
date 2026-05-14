@@ -2,9 +2,9 @@ namespace Belin.Html;
 
 using System.Collections;
 using System.Globalization;
-using System.Net;
 using System.Text;
 using System.Text.Json;
+using System.Text.Encodings.Web;
 
 /// <summary>
 /// Provides the abstract base class for a cmdlet rendering an HTML element.
@@ -16,7 +16,7 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	/// <summary>
 	/// The HTML-encoded string corresponding to a double quote.
 	/// </summary>
-	private static readonly string encodedDoubleQuote = WebUtility.HtmlEncode("\"");
+	private static readonly string encodedDoubleQuote = HtmlEncoder.Default.Encode("\"");
 
 	/// <summary>
 	/// The custom attributes to render.
