@@ -54,5 +54,7 @@ public class NewSvgElementCommand(): WriteElementCommand("svg", isVoid: false) {
 		if (!string.IsNullOrWhiteSpace(PreserveAspectRatio)) attributes["preserveAspectRatio"] = PreserveAspectRatio;
 		if (ViewBox is not null) attributes["viewBox"] = string.Join(" ", ViewBox.Select(number => number.ToString(CultureInfo.InvariantCulture)));
 		if (!string.IsNullOrWhiteSpace(Width)) attributes["width"] = Width;
+		if (!string.IsNullOrWhiteSpace(X)) attributes["x"] = X;
+		if (!string.IsNullOrWhiteSpace(Y)) attributes["y"] = Y;
 	}
 }

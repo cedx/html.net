@@ -20,7 +20,7 @@ Describe "New-ImgElement" {
 		img -Src Image.webp -UseMap my-map | Should -BeIn '<img usemap="#my-map" src="Image.webp">', '<img src="Image.webp" usemap="#my-map">'
 	}
 
-	It 'should support the "height" and "width" attributes' {
+	It 'should support the "width" and "height" attributes' {
 		img -Src Image.webp -Height 200 | Should -BeIn '<img height="200" src="Image.webp">', '<img src="Image.webp" height="200">'
 		img -Src Image.webp -Width 460 | Should -BeIn '<img width="460" src="Image.webp">', '<img src="Image.webp" width="460">'
 	}

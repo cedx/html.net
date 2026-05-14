@@ -110,6 +110,7 @@
 		"New-HtmlSubElement"
 		"New-HtmlSummaryElement"
 		"New-HtmlSupElement"
+		"New-HtmlSvgElement"
 		"New-HtmlTableElement"
 		"New-HtmlTbodyElement"
 		"New-HtmlTdElement"
