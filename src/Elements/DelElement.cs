@@ -31,6 +31,7 @@ public class NewDelElementCommand(): WriteElementCommand("del", isVoid: false) {
 				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
 					DateOnly value => value.ToString("o"),
 					DateTime value => value.ToString("o"),
+					DateTimeOffset value => value.ToString("o"),
 					_ => throw new NotSupportedException("The specified date/time value is not supported.")
 				};
 			}

@@ -26,6 +26,7 @@ public class NewTimeElementCommand(): WriteElementCommand("time", isVoid: false)
 				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
 					DateOnly value => value.ToString("o"),
 					DateTime value => value.ToString("o"),
+					DateTimeOffset value => value.ToString("o"),
 					TimeOnly value => value.ToString("o"),
 					TimeSpan value => XmlConvert.ToString(value),
 					_ => throw new NotSupportedException("The specified date/time value is not supported.")
