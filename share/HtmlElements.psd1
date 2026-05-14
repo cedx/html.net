@@ -95,6 +95,7 @@
 		@{ Tag = "sub"; IsVoid = $false }
 		@{ Tag = "summary"; IsVoid = $false }
 		@{ Tag = "sup"; IsVoid = $false }
+		@{ Tag = "svg"; IsVoid = $false }
 		@{ Tag = "table"; IsVoid = $false }
 		@{ Tag = "tbody"; IsVoid = $false }
 		@{ Tag = "td"; IsVoid = $false }
