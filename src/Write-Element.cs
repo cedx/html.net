@@ -19,6 +19,12 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	private static readonly string encodedDoubleQuote = HtmlEncoder.Default.Encode("\"");
 
 	/// <summary>
+	/// The ARIA attributes to render.
+	/// </summary>
+	[Parameter]
+	public Hashtable Aria { get; set; } = [];
+
+	/// <summary>
 	/// The custom attributes to render.
 	/// </summary>
 	[Parameter]
@@ -85,6 +91,12 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	public string? Id { get; set; }
 
 	/// <summary>
+	/// Value indicating whether the browser should disregard user input events for the element.
+	/// </summary>
+	[Parameter]
+	public SwitchParameter Inert { get; set; }
+
+	/// <summary>
 	/// A hint at the type of data that might be entered by the user while editing the element or its contents.
 	/// </summary>
 	[Parameter, ValidateSet("decimal", "email", "none", "numeric", "search", "tel", "text", "url")]
@@ -109,10 +121,16 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	public Hashtable On { get; set; } = [];
 
 	/// <summary>
-	/// Defines the type of user interface element.
+	/// Defines the semantic meaning of content.
 	/// </summary>
 	[Parameter]
 	public string? Role { get; set; }
+
+	/// <summary>
+	/// Assigns a slot in a shadow DOM shadow tree to the element.
+	/// </summary>
+	[Parameter]
+	public string? Slot { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element is subject to spell-checking by the underlying browser/OS.
@@ -195,7 +213,7 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	protected virtual void RenderAttributes(IDictionary<string, object?> attributes) {
 		var kebabCase = JsonNamingPolicy.KebabCaseLower.ConvertName;
 
-		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
+		foreach (DictionaryEntry entry in Aria) attributes[$"aria-{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (AutoCapitalize is not null) attributes["autocapitalize"] = AutoCapitalize;
 		if (AutoFocus) attributes["autofocus"] = true;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class).Trim();
@@ -205,11 +223,13 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 		if (Draggable is not null) attributes["draggable"] = Draggable;
 		if (Hidden) attributes["hidden"] = true;
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
+		if (Inert) attributes["inert"] = true;
 		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (Popover is not null) attributes["popover"] = Popover;
 		if (!string.IsNullOrWhiteSpace(Role)) attributes["role"] = Role;
+		if (!string.IsNullOrWhiteSpace(Slot)) attributes["slot"] = Slot;
 		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value;
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;

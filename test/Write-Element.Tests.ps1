@@ -19,6 +19,11 @@ Describe "Write-Element" {
 		& $tag | Should -BeExactly $expected
 	}
 
+	It 'should handle the "aria" attributes' {
+		div -Aria @{ Atomic = "true" } | Should -BeExactly '<div aria-atomic="true"></div>'
+		div -Aria @{ DescribedBy = "ID" } | Should -BeExactly '<div aria-describedby="ID"></div>'
+	}
+
 	It 'should handle the "class" attribute' {
 		body -Class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
 		body -Class "btn btn-info", btn-sm | Should -BeExactly '<body class="btn btn-info btn-sm"></body>'
@@ -34,6 +39,10 @@ Describe "Write-Element" {
 
 	It 'should support the "lang" attribute' -ForEach "fr-FR", "en-US" {
 		html -Lang $_ | Should -BeExactly "<html lang=""$_""></html>"
+	}
+
+	It 'should handle the "role" attribute' {
+		div -Role button | Should -BeExactly '<div role="button"></div>'
 	}
 
 	It 'should handle the "style" attribute' {
