@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.3.0](https://github.com/cedx/html.ps1/compare/v2.2.0...v2.3.0)
+- Added the `-Role` common parameter.
+
 ## Version [2.2.0](https://github.com/cedx/html.ps1/compare/v2.1.1...v2.2.0)
 - Added the `New-HtmlSvgElement` and `Protect-HtmlString` cmdlets.
 - Added the `svg` and `esc` aliases.

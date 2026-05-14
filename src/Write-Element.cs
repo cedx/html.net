@@ -109,6 +109,12 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	public Hashtable On { get; set; } = [];
 
 	/// <summary>
+	/// Defines the type of user interface element.
+	/// </summary>
+	[Parameter]
+	public string? Role { get; set; }
+
+	/// <summary>
 	/// Value indicating whether the element is subject to spell-checking by the underlying browser/OS.
 	/// </summary>
 	[Parameter, ValidateSet("false", "true")]
@@ -198,10 +204,12 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Draggable is not null) attributes["draggable"] = Draggable;
 		if (Hidden) attributes["hidden"] = true;
+		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (Popover is not null) attributes["popover"] = Popover;
+		if (!string.IsNullOrWhiteSpace(Role)) attributes["role"] = Role;
 		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value;
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
