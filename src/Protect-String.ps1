@@ -10,29 +10,26 @@ using namespace System.Text.Encodings.Web
 #>
 function Protect-HtmlString {
 	[Alias("esc")]
-	[CmdletBinding(DefaultParameterSetName = "Html")]
+	[CmdletBinding()]
 	[OutputType([string])]
 	param (
-		# The string to escape.
+		# The string to encode.
 		[Parameter(Mandatory, Position = 0, ValueFromPipeline)]
 		[AllowEmptyString()]
 		[AllowNull()]
 		[string] $Value,
 
-		# Value indicating whether to use the HTML character encoding.
+		# The character encoding to use.
 		[Parameter(ParameterSetName = "Html")]
-		[switch] $Html,
-
-		# Value indicating whether to use the URL character encoding.
-		[Parameter(ParameterSetName = "Url")]
-		[switch] $Url
+		[ValidateSet("Html", "Url")]
+		[string] $Encoder = "Html"
 	)
 
 	begin {
-		$encoder = $Url ? [UrlEncoder]::Default : [HtmlEncoder]::Default
+		$textEncoder = $Encoder -eq "Url" ? [UrlEncoder]::Default : [HtmlEncoder]::Default
 	}
 
 	process {
-		$encoder.Encode($Value ?? "")
+		$textEncoder.Encode($Value ?? "")
 	}
 }
