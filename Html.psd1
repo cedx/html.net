@@ -133,9 +133,9 @@
 
 	PrivateData = @{
 		PSData = @{
-			LicenseUri = "https://github.com/cedx/html.ps1/blob/main/License.md"
-			ProjectUri = "https://github.com/cedx/html.ps1"
-			ReleaseNotes = "https://github.com/cedx/html.ps1/releases"
+			LicenseUri = "https://github.com/CedX/Html.ps1/blob/main/License.md"
+			ProjectUri = "https://github.com/CedX/Html.ps1"
+			ReleaseNotes = "https://github.com/CedX/Html.ps1/releases"
 			Tags = "html", "renderer", "template", "templating", "web"
 		}
 	}
