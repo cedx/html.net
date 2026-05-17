@@ -20,7 +20,6 @@ function Protect-HtmlString {
 		[string] $Value,
 
 		# The character encoding to use.
-		[Parameter(ParameterSetName = "Html")]
 		[ValidateSet("Html", "Url")]
 		[string] $Encoder = "Html"
 	)
